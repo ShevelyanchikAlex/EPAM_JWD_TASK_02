@@ -1,25 +1,38 @@
 package by.epam.task02.entity;
 
+import by.epam.task02.constant.ApplianceFieldConstant;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 public class TabletPC extends Appliance implements Serializable {
     private double batteryCapacity;
     private double displayInches;
-    private int memoryRom;
-    private int flashMemoryCapacity;
+    private double memoryRom;
+    private double flashMemoryCapacity;
     private Color color;
 
     public TabletPC() {
     }
 
-    public TabletPC(double price, double batteryCapacity, double displayInches, int memoryRom, int flashMemoryCapacity, Color color) {
+    public TabletPC(double price, double batteryCapacity, double displayInches, double memoryRom, double flashMemoryCapacity, Color color) {
         super(price);
         this.batteryCapacity = batteryCapacity;
         this.displayInches = displayInches;
         this.memoryRom = memoryRom;
         this.flashMemoryCapacity = flashMemoryCapacity;
         this.color = color;
+    }
+
+    public boolean isMatchesCriteria(String criteriaName, Object value) {
+        return switch (criteriaName) {
+            case ApplianceFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
+            case ApplianceFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
+            case ApplianceFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
+            case ApplianceFieldConstant.FLASH_MEMORY_CAPACITY -> (double) value == flashMemoryCapacity;
+            case ApplianceFieldConstant.COLOR -> Color.valueOf((String) value) == color;
+            default -> false;
+        };
     }
 
     public double getBatteryCapacity() {
@@ -30,11 +43,11 @@ public class TabletPC extends Appliance implements Serializable {
         return displayInches;
     }
 
-    public int getMemoryRom() {
+    public double getMemoryRom() {
         return memoryRom;
     }
 
-    public int getFlashMemoryCapacity() {
+    public double getFlashMemoryCapacity() {
         return flashMemoryCapacity;
     }
 

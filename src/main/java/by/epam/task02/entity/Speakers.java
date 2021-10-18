@@ -1,5 +1,7 @@
 package by.epam.task02.entity;
 
+import by.epam.task02.constant.ApplianceFieldConstant;
+
 import java.util.Objects;
 
 public class Speakers extends Appliance {
@@ -16,6 +18,15 @@ public class Speakers extends Appliance {
         this.powerConsumption = powerConsumption;
         this.numberOfSpeakers = numberOfSpeakers;
         this.cordLength = cordLength;
+    }
+
+    public boolean isMatchesCriteria(String criteriaName, Object value) {
+        return switch (criteriaName) {
+            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case ApplianceFieldConstant.NUMBER_OF_SPEAKERS -> (int) value == numberOfSpeakers;
+            case ApplianceFieldConstant.CORD_LENGTH -> (double) value == cordLength;
+            default -> false;
+        };
     }
 
     public double getPowerConsumption() {

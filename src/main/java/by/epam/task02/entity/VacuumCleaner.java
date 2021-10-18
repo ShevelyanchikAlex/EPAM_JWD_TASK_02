@@ -1,10 +1,12 @@
 package by.epam.task02.entity;
 
+import by.epam.task02.constant.ApplianceFieldConstant;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 public class VacuumCleaner extends Appliance implements Serializable {
-    private int powerConsumption;
+    private double powerConsumption;
     private FilterType filterType;
     private BagType bagType;
     private WandType wandType;
@@ -14,7 +16,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     public VacuumCleaner() {
     }
 
-    public VacuumCleaner(double price, int powerConsumption, FilterType filterType, BagType bagType, WandType wandType, double motorSpeedRegulation, double cleaningWidth) {
+    public VacuumCleaner(double price, double powerConsumption, FilterType filterType, BagType bagType, WandType wandType, double motorSpeedRegulation, double cleaningWidth) {
         super(price);
         this.powerConsumption = powerConsumption;
         this.filterType = filterType;
@@ -24,7 +26,19 @@ public class VacuumCleaner extends Appliance implements Serializable {
         this.cleaningWidth = cleaningWidth;
     }
 
-    public int getPowerConsumption() {
+    public boolean isMatchesCriteria(String criteriaName, Object value) {
+        return switch (criteriaName) {
+            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case ApplianceFieldConstant.FILTER_TYPE -> FilterType.valueOf((String) value) == filterType;
+            case ApplianceFieldConstant.BAG_TYPE -> BagType.valueOf((String) value) == bagType;
+            case ApplianceFieldConstant.WAND_TYPE -> WandType.valueOf((String) value) == wandType;
+            case ApplianceFieldConstant.MOTOR_SPEED_REGULATION -> (double) value == motorSpeedRegulation;
+            case ApplianceFieldConstant.CLEANING_WIDTH -> (double) value == cleaningWidth;
+            default -> false;
+        };
+    }
+
+    public double getPowerConsumption() {
         return powerConsumption;
     }
 

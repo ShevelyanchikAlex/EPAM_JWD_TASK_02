@@ -1,5 +1,7 @@
 package by.epam.task02.entity;
 
+import by.epam.task02.constant.ApplianceFieldConstant;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -22,6 +24,18 @@ public class Laptop extends Appliance implements Serializable {
         this.memoryRom = memory_rom;
         this.cpu = cpu;
         this.displayInches = displayInchs;
+    }
+
+
+    public boolean isMatchesCriteria(String criteriaName, Object value) {
+        return switch (criteriaName) {
+            case ApplianceFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
+            case ApplianceFieldConstant.OS -> OS.valueOf((String) value) == os;
+            case ApplianceFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
+            case ApplianceFieldConstant.CPU -> CPU.valueOf((String) value) == cpu;
+            case ApplianceFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
+            default -> false;
+        };
     }
 
 

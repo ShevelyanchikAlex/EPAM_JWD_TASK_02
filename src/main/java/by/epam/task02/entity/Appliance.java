@@ -1,7 +1,10 @@
 package by.epam.task02.entity;
 
+import by.epam.task02.constant.ApplianceFieldConstant;
+
 import java.io.Serializable;
 import java.util.Objects;
+
 
 public class Appliance implements Serializable {
 
@@ -12,6 +15,13 @@ public class Appliance implements Serializable {
 
     public Appliance(double price) {
         this.price = price;
+    }
+
+    public boolean isMatchesCriteria(String criteriaName, Object value) {
+        return switch (criteriaName) {
+            case ApplianceFieldConstant.PRICE -> (int) value == price;
+            default -> false;
+        };
     }
 
     public double getPrice() {

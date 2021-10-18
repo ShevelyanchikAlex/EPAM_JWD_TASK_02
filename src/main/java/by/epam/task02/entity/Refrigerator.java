@@ -1,5 +1,7 @@
 package by.epam.task02.entity;
 
+import by.epam.task02.constant.ApplianceFieldConstant;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,6 +25,19 @@ public class Refrigerator extends Appliance implements Serializable {
         this.height = height;
         this.width = width;
     }
+
+    public boolean isMatchesCriteria(String criteriaName, Object value) {
+        return switch (criteriaName) {
+            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case ApplianceFieldConstant.WEIGHT -> (double) value == weight;
+            case ApplianceFieldConstant.FREEZER_CAPACITY -> (double) value == freezerCapacity;
+            case ApplianceFieldConstant.OVERALL_CAPACITY -> (double) value == overallCapacity;
+            case ApplianceFieldConstant.HEIGHT -> (double) value == height;
+            case ApplianceFieldConstant.WIDTH -> (double) value == width;
+            default -> false;
+        };
+    }
+
 
     @Override
     public boolean equals(Object o) {

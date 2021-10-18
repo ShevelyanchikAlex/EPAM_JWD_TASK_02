@@ -1,5 +1,6 @@
 package by.epam.task02.dao.appliance_factory.impl;
 
+import by.epam.task02.constant.ExceptionMessageConstant;
 import by.epam.task02.dao.appliance_factory.ApplianceFactory;
 import by.epam.task02.entity.Appliance;
 import by.epam.task02.entity.CPU;
@@ -23,7 +24,7 @@ public class LaptopFactory extends ApplianceFactory {
             if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
                 String value = nodeList.item(i).getTextContent();
 
-                SearchCriteria.Laptop laptopSearchCriteria = SearchCriteria.Laptop.valueOf(nodeList.item(i).getNodeValue().toUpperCase());
+                SearchCriteria.Laptop laptopSearchCriteria = SearchCriteria.Laptop.valueOf(nodeList.item(i).getNodeName().toUpperCase());
 
                 switch (laptopSearchCriteria) {
                     case PRICE -> price = Integer.parseInt(value);
@@ -32,11 +33,12 @@ public class LaptopFactory extends ApplianceFactory {
                     case MEMORY_ROM -> memoryRom = Double.parseDouble(value);
                     case CPU -> cpu = CPU.valueOf(value);
                     case DISPLAY_INCHES -> displayInches = Double.parseDouble(value);
-                    default -> throw new IllegalArgumentException("No such appliance exists");
+                    default -> throw new IllegalArgumentException(ExceptionMessageConstant.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
                 }
             }
         }
 
         return new Laptop(price, batteryCapacity, os, memoryRom, cpu, displayInches);
     }
+
 }

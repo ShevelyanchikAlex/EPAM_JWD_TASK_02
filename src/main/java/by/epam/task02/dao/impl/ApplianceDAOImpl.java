@@ -1,9 +1,11 @@
 package by.epam.task02.dao.impl;
 
+import by.epam.task02.constant.ResourcesConstant;
 import by.epam.task02.dao.ApplianceDAO;
 import by.epam.task02.dao.appliance_factory.ApplianceFactory;
 import by.epam.task02.entity.Appliance;
 import by.epam.task02.entity.criteria.Criteria;
+import by.epam.task02.exception.DaoException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -19,32 +21,37 @@ import java.util.Objects;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
-    private static final String APPLIANCES_DB_XML = "appliances_db.xml";
-
     @Override
-    public List<Appliance> find(Criteria criteria) {
+    public List<Appliance> find(Criteria criteria) throws DaoException {
         List<Appliance> appliances = new ArrayList<>();
         try {
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document document = documentBuilder.parse(Objects.requireNonNull(getClass().getResource(APPLIANCES_DB_XML)).getFile());
+            Document document = documentBuilder.parse(Objects.requireNonNull(getClass().getClassLoader().getResource(ResourcesConstant.APPLIANCES_DB_XML)).getFile());
             document.getDocumentElement().normalize();
 
             NodeList nodeList = document.getDocumentElement().getChildNodes();
+
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     ApplianceFactory applianceFactory = ApplianceFactory.getApplianceFactory(node.getNodeName());
-                    Appliance appliance = applianceFactory.createAppliance(node.getChildNodes());
+                    if (criteria.getGroupSearchName().equals(node.getNodeName())) {
+                        Appliance appliance = applianceFactory.createAppliance(node.getChildNodes());
 
+                        if (criteria.getCriteriaMap()
+                                .entrySet()
+                                .stream()
+                                .allMatch(entry -> appliance.isMatchesCriteria(entry.getKey(), entry.getValue()))) {
+                            appliances.add(appliance);
+                        }
+                    }
                 }
             }
 
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            e.printStackTrace();
-            return null;
+            throw new DaoException(e);
         }
         return appliances;
     }
-
 
 }
