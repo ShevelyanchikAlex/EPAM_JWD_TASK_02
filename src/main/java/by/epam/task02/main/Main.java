@@ -1,9 +1,9 @@
 package by.epam.task02.main;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
 import by.epam.task02.constant.ApplianceNameConstant;
 import by.epam.task02.entity.Appliance;
 import by.epam.task02.entity.criteria.Criteria;
+import by.epam.task02.entity.criteria.SearchCriteria;
 import by.epam.task02.exception.DaoException;
 import by.epam.task02.exception.ServiceException;
 import by.epam.task02.service.ApplianceService;
@@ -23,31 +23,40 @@ public class Main {
         //////////////////////////////////////////////////////////////////
 
         Criteria criteriaLaptop = new Criteria(ApplianceNameConstant.LAPTOP);
-        criteriaLaptop.add(ApplianceFieldConstant.OS, "MACOS");
-        criteriaLaptop.add(ApplianceFieldConstant.MEMORY_ROM, 16000.0);
+        criteriaLaptop.add(SearchCriteria.PriceFilter.LESS_THAN_CURRENT_PRICE.name(), 1000.0);
 
         appliances = service.find(criteriaLaptop);
 
         PrinterApplianceInfo.print(appliances);
 
+
         //////////////////////////////////////////////////////////////////
 
-        criteriaLaptop = new Criteria(ApplianceNameConstant.OVEN);
-        criteriaLaptop.add(ApplianceFieldConstant.HEIGHT, 200.0);
-        criteriaLaptop.add(ApplianceFieldConstant.DEPTH, 300.0);
+        Criteria criteriaOven = new Criteria(ApplianceNameConstant.OVEN);
+        criteriaOven.add(SearchCriteria.Oven.HEIGHT.name(), 45.0);
+        criteriaOven.add(SearchCriteria.Oven.DEPTH.name(), 60.0);
 
-        appliances = service.find(criteriaLaptop);
+        appliances = service.find(criteriaOven);
 
         PrinterApplianceInfo.print(appliances);
 
         //////////////////////////////////////////////////////////////////
 
         Criteria criteriaTabletPC = new Criteria(ApplianceNameConstant.TABLET_PC);
-        criteriaTabletPC.add(ApplianceFieldConstant.COLOR, "BLUE");
-        criteriaTabletPC.add(ApplianceFieldConstant.DISPLAY_INCHES, 15.0);
-        criteriaTabletPC.add(ApplianceFieldConstant.MEMORY_ROM, 12000.0);
+        criteriaTabletPC.add(SearchCriteria.TabletPC.COLOR.name(), "BLUE");
+        criteriaTabletPC.add(SearchCriteria.TabletPC.DISPLAY_INCHES.name(), 15.0);
+        criteriaTabletPC.add(SearchCriteria.TabletPC.MEMORY_ROM.name(), 12000.0);
 
-        appliances = service.find(criteriaTabletPC);// find(Object...obj)
+        appliances = service.find(criteriaTabletPC);
+
+        PrinterApplianceInfo.print(appliances);
+
+        //////////////////////////////////////////////////////////////////
+
+        Criteria criteriaSpeakers = new Criteria(ApplianceNameConstant.SPEAKERS);
+        criteriaSpeakers.add(SearchCriteria.PriceFilter.MORE_THAN_CURRENT_PRICE.name(), 300.0);
+
+        appliances = service.find(criteriaTabletPC);
 
         PrinterApplianceInfo.print(appliances);
 

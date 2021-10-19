@@ -1,6 +1,7 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
+import by.epam.task02.constant.ApplianceNameConstant;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -28,12 +29,17 @@ public class VacuumCleaner extends Appliance implements Serializable {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
-            case ApplianceFieldConstant.FILTER_TYPE -> FilterType.valueOf((String) value) == filterType;
-            case ApplianceFieldConstant.BAG_TYPE -> BagType.valueOf((String) value) == bagType;
-            case ApplianceFieldConstant.WAND_TYPE -> WandType.valueOf((String) value) == wandType;
-            case ApplianceFieldConstant.MOTOR_SPEED_REGULATION -> (double) value == motorSpeedRegulation;
-            case ApplianceFieldConstant.CLEANING_WIDTH -> (double) value == cleaningWidth;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
+            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.VACUUM_CLEANER.equals(value);
+            case SearchCriteriaFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case SearchCriteriaFieldConstant.FILTER_TYPE -> filterType.equals(FilterType.valueOf((String) value));
+            case SearchCriteriaFieldConstant.BAG_TYPE -> bagType.equals(BagType.valueOf((String) value));
+            case SearchCriteriaFieldConstant.WAND_TYPE -> wandType.equals(WandType.valueOf((String) value));
+            case SearchCriteriaFieldConstant.MOTOR_SPEED_REGULATION -> (double) value == motorSpeedRegulation;
+            case SearchCriteriaFieldConstant.CLEANING_WIDTH -> (double) value == cleaningWidth;
             default -> false;
         };
     }

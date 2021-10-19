@@ -1,6 +1,6 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -19,7 +19,10 @@ public class Appliance implements Serializable {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.PRICE -> (int) value == price;
+            case SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE -> price > (double) value;
+            case SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE -> price < (double) value;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> price == (double) value;
             default -> false;
         };
     }

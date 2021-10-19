@@ -35,6 +35,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     ApplianceFactory applianceFactory = ApplianceFactory.getApplianceFactory(node.getNodeName());
+
                     if (criteria.getGroupSearchName().equals(node.getNodeName())) {
                         Appliance appliance = applianceFactory.createAppliance(node.getChildNodes());
 

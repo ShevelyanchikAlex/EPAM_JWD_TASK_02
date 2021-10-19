@@ -2,6 +2,10 @@ package by.epam.task02.entity.criteria;
 
 public final class SearchCriteria {
 
+    public enum General {
+        NAME, PRICE
+    }
+
     public enum Oven {
         PRICE, POWER_CONSUMPTION, WEIGHT, CAPACITY, DEPTH, HEIGHT, WIDTH
     }
@@ -24,6 +28,10 @@ public final class SearchCriteria {
 
     public enum Speakers {
         PRICE, POWER_CONSUMPTION, NUMBER_OF_SPEAKERS, CORD_LENGTH
+    }
+
+    public enum PriceFilter {
+        MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE
     }
 
     private SearchCriteria() {

@@ -1,6 +1,7 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
+import by.epam.task02.constant.ApplianceNameConstant;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -29,11 +30,16 @@ public class Laptop extends Appliance implements Serializable {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
-            case ApplianceFieldConstant.OS -> OS.valueOf((String) value) == os;
-            case ApplianceFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
-            case ApplianceFieldConstant.CPU -> CPU.valueOf((String) value) == cpu;
-            case ApplianceFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
+            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.LAPTOP.equals(value);
+            case SearchCriteriaFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
+            case SearchCriteriaFieldConstant.OS -> os.equals(OS.valueOf((String) value));
+            case SearchCriteriaFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
+            case SearchCriteriaFieldConstant.CPU -> cpu.equals(CPU.valueOf((String) value));
+            case SearchCriteriaFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
             default -> false;
         };
     }

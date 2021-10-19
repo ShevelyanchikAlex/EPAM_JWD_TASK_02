@@ -1,10 +1,12 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
+import by.epam.task02.constant.ApplianceNameConstant;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Speakers extends Appliance {
+public class Speakers extends Appliance implements Serializable {
     private double powerConsumption;
     private int numberOfSpeakers;
     private double cordLength;
@@ -22,9 +24,14 @@ public class Speakers extends Appliance {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
-            case ApplianceFieldConstant.NUMBER_OF_SPEAKERS -> (int) value == numberOfSpeakers;
-            case ApplianceFieldConstant.CORD_LENGTH -> (double) value == cordLength;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
+            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.SPEAKERS.equals(value);
+            case SearchCriteriaFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case SearchCriteriaFieldConstant.NUMBER_OF_SPEAKERS -> (int) value == numberOfSpeakers;
+            case SearchCriteriaFieldConstant.CORD_LENGTH -> (double) value == cordLength;
             default -> false;
         };
     }

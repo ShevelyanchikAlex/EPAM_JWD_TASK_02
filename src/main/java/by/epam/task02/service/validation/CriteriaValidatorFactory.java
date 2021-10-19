@@ -1,8 +1,7 @@
 package by.epam.task02.service.validation;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
 import by.epam.task02.constant.ExceptionMessageConstant;
-import by.epam.task02.constant.ValidatorNameConstant;
+import by.epam.task02.entity.criteria.SearchCriteria;
 import by.epam.task02.service.validation.impl.*;
 
 import java.util.HashMap;
@@ -13,14 +12,48 @@ public class CriteriaValidatorFactory {
     private final Map<String, CriteriaValidator> validators = new HashMap<>();
 
     {
-        validators.put(ValidatorNameConstant.BAG_TYPE_VALIDATOR_NAME, new BagTypeValidator());
-        validators.put(ValidatorNameConstant.COLOR_VALIDATOR_NAME, new ColorValidator());
-        validators.put(ValidatorNameConstant.CPU_VALIDATOR_NAME, new CPUValidator());
-        validators.put(ValidatorNameConstant.DOUBLE_VALIDATOR_NAME, new DoubleValidator());
-        validators.put(ValidatorNameConstant.FILTER_TYPE_VALIDATOR_NAME, new FilterTypeValidator());
-        validators.put(ValidatorNameConstant.INT_VALIDATOR_NAME, new IntValidator());
-        validators.put(ValidatorNameConstant.OS_VALIDATOR_NAME, new OSValidator());
-        validators.put(ValidatorNameConstant.WAND_TYPE_VALIDATOR_NAME, new WandTypeValidator());
+        validators.put(SearchCriteria.General.NAME.name(), new ApplianceNameValidator());
+        validators.put(SearchCriteria.General.PRICE.name(), new DoubleValidator());
+        validators.put(SearchCriteria.PriceFilter.MORE_THAN_CURRENT_PRICE.name(), new DoubleValidator());
+        validators.put(SearchCriteria.PriceFilter.LESS_THAN_CURRENT_PRICE.name(), new DoubleValidator());
+        validators.put(SearchCriteria.PriceFilter.EQUAL_CURRENT_PRICE.name(), new DoubleValidator());
+
+        validators.put(SearchCriteria.Laptop.BATTERY_CAPACITY.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Laptop.OS.name(), new OSValidator());
+        validators.put(SearchCriteria.Laptop.MEMORY_ROM.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Laptop.CPU.name(), new CPUValidator());
+        validators.put(SearchCriteria.Laptop.DISPLAY_INCHES.name(), new DoubleValidator());
+
+        validators.put(SearchCriteria.Oven.POWER_CONSUMPTION.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Oven.WEIGHT.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Oven.CAPACITY.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Oven.DEPTH.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Oven.HEIGHT.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Oven.WIDTH.name(), new DoubleValidator());
+
+        validators.put(SearchCriteria.Refrigerator.POWER_CONSUMPTION.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Refrigerator.WEIGHT.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Refrigerator.FREEZER_CAPACITY.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Refrigerator.OVERALL_CAPACITY.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Refrigerator.HEIGHT.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Refrigerator.WIDTH.name(), new DoubleValidator());
+
+        validators.put(SearchCriteria.Speakers.POWER_CONSUMPTION.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Speakers.POWER_CONSUMPTION.name(), new DoubleValidator());
+        validators.put(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS.name(), new IntValidator());
+        validators.put(SearchCriteria.Speakers.CORD_LENGTH.name(), new DoubleValidator());
+
+        validators.put(SearchCriteria.TabletPC.BATTERY_CAPACITY.name(), new DoubleValidator());
+        validators.put(SearchCriteria.TabletPC.DISPLAY_INCHES.name(), new DoubleValidator());
+        validators.put(SearchCriteria.TabletPC.MEMORY_ROM.name(), new DoubleValidator());
+        validators.put(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.name(), new DoubleValidator());
+        validators.put(SearchCriteria.TabletPC.COLOR.name(), new ColorValidator());
+
+        validators.put(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.name(), new DoubleValidator());
+        validators.put(SearchCriteria.VacuumCleaner.FILTER_TYPE.name(), new FilterTypeValidator());
+        validators.put(SearchCriteria.VacuumCleaner.WAND_TYPE.name(), new WandTypeValidator());
+        validators.put(SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION.name(), new DoubleValidator());
+        validators.put(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.name(), new DoubleValidator());
     }
 
     private CriteriaValidatorFactory() {
@@ -31,32 +64,10 @@ public class CriteriaValidatorFactory {
     }
 
     public CriteriaValidator getValidator(String criteriaName) {
-        return switch (criteriaName) {
-            case ApplianceFieldConstant.BAG_TYPE -> validators.get(ValidatorNameConstant.BAG_TYPE_VALIDATOR_NAME);
-            case ApplianceFieldConstant.COLOR -> validators.get(ValidatorNameConstant.COLOR_VALIDATOR_NAME);
-            case ApplianceFieldConstant.CPU -> validators.get(ValidatorNameConstant.CPU_VALIDATOR_NAME);
-            case ApplianceFieldConstant.FILTER_TYPE -> validators.get(ValidatorNameConstant.FILTER_TYPE_VALIDATOR_NAME);
-            case ApplianceFieldConstant.OS -> validators.get(ValidatorNameConstant.OS_VALIDATOR_NAME);
-            case ApplianceFieldConstant.WAND_TYPE -> validators.get(ValidatorNameConstant.WAND_TYPE_VALIDATOR_NAME);
-            case ApplianceFieldConstant.NUMBER_OF_SPEAKERS -> validators.get(ValidatorNameConstant.INT_VALIDATOR_NAME);
-            case ApplianceFieldConstant.PRICE,
-                    ApplianceFieldConstant.BATTERY_CAPACITY,
-                    ApplianceFieldConstant.CLEANING_WIDTH,
-                    ApplianceFieldConstant.MOTOR_SPEED_REGULATION,
-                    ApplianceFieldConstant.FLASH_MEMORY_CAPACITY,
-                    ApplianceFieldConstant.CORD_LENGTH,
-                    ApplianceFieldConstant.OVERALL_CAPACITY,
-                    ApplianceFieldConstant.FREEZER_CAPACITY,
-                    ApplianceFieldConstant.WIDTH,
-                    ApplianceFieldConstant.HEIGHT,
-                    ApplianceFieldConstant.DEPTH,
-                    ApplianceFieldConstant.CAPACITY,
-                    ApplianceFieldConstant.WEIGHT,
-                    ApplianceFieldConstant.POWER_CONSUMPTION,
-                    ApplianceFieldConstant.DISPLAY_INCHES,
-                    ApplianceFieldConstant.MEMORY_ROM -> validators.get(ValidatorNameConstant.DOUBLE_VALIDATOR_NAME);
-            default -> throw new IllegalArgumentException(ExceptionMessageConstant.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
-        };
+        if (validators.containsKey(criteriaName)) {
+            return validators.get(criteriaName);
+        }
+        throw new IllegalArgumentException(ExceptionMessageConstant.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
     }
 
 }

@@ -1,6 +1,7 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
+import by.epam.task02.constant.ApplianceNameConstant;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -16,9 +17,9 @@ public class Refrigerator extends Appliance implements Serializable {
     public Refrigerator() {
     }
 
-    public Refrigerator(double price, double powerConsumOption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {
+    public Refrigerator(double price, double powerConsumption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {
         super(price);
-        this.powerConsumption = powerConsumOption;
+        this.powerConsumption = powerConsumption;
         this.weight = weight;
         this.freezerCapacity = freezerCapacity;
         this.overallCapacity = overallCapacity;
@@ -28,12 +29,17 @@ public class Refrigerator extends Appliance implements Serializable {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
-            case ApplianceFieldConstant.WEIGHT -> (double) value == weight;
-            case ApplianceFieldConstant.FREEZER_CAPACITY -> (double) value == freezerCapacity;
-            case ApplianceFieldConstant.OVERALL_CAPACITY -> (double) value == overallCapacity;
-            case ApplianceFieldConstant.HEIGHT -> (double) value == height;
-            case ApplianceFieldConstant.WIDTH -> (double) value == width;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
+            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.REFRIGERATOR.equals(value);
+            case SearchCriteriaFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case SearchCriteriaFieldConstant.WEIGHT -> (double) value == weight;
+            case SearchCriteriaFieldConstant.FREEZER_CAPACITY -> (double) value == freezerCapacity;
+            case SearchCriteriaFieldConstant.OVERALL_CAPACITY -> (double) value == overallCapacity;
+            case SearchCriteriaFieldConstant.HEIGHT -> (double) value == height;
+            case SearchCriteriaFieldConstant.WIDTH -> (double) value == width;
             default -> false;
         };
     }

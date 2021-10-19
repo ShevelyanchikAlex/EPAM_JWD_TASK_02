@@ -28,7 +28,6 @@ public class ApplianceServiceImpl implements ApplianceService {
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
-
         return appliances;
     }
 

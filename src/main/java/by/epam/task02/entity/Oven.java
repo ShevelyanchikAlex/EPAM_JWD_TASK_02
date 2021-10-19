@@ -1,6 +1,7 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
+import by.epam.task02.constant.ApplianceNameConstant;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -29,12 +30,17 @@ public class Oven extends Appliance implements Serializable {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
-            case ApplianceFieldConstant.WEIGHT -> (double) value == weight;
-            case ApplianceFieldConstant.CAPACITY -> (double) value == capacity;
-            case ApplianceFieldConstant.DEPTH -> (double) value == depth;
-            case ApplianceFieldConstant.HEIGHT -> (double) value == height;
-            case ApplianceFieldConstant.WIDTH -> (double) value == width;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
+            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.OVEN.equals(value);
+            case SearchCriteriaFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
+            case SearchCriteriaFieldConstant.WEIGHT -> (double) value == weight;
+            case SearchCriteriaFieldConstant.CAPACITY -> (double) value == capacity;
+            case SearchCriteriaFieldConstant.DEPTH -> (double) value == depth;
+            case SearchCriteriaFieldConstant.HEIGHT -> (double) value == height;
+            case SearchCriteriaFieldConstant.WIDTH -> (double) value == width;
             default -> false;
         };
     }

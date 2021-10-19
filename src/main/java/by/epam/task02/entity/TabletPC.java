@@ -1,6 +1,7 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.ApplianceFieldConstant;
+import by.epam.task02.constant.SearchCriteriaFieldConstant;
+import by.epam.task02.constant.ApplianceNameConstant;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -26,11 +27,16 @@ public class TabletPC extends Appliance implements Serializable {
 
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
-            case ApplianceFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
-            case ApplianceFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
-            case ApplianceFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
-            case ApplianceFieldConstant.FLASH_MEMORY_CAPACITY -> (double) value == flashMemoryCapacity;
-            case ApplianceFieldConstant.COLOR -> Color.valueOf((String) value) == color;
+            case SearchCriteriaFieldConstant.PRICE,
+                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
+                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
+            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.TABLET_PC.equals(value);
+            case SearchCriteriaFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
+            case SearchCriteriaFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
+            case SearchCriteriaFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
+            case SearchCriteriaFieldConstant.FLASH_MEMORY_CAPACITY -> (double) value == flashMemoryCapacity;
+            case SearchCriteriaFieldConstant.COLOR -> color.equals(Color.valueOf((String) value));
             default -> false;
         };
     }
