@@ -6,17 +6,57 @@ import by.epam.task02.constant.ApplianceNameConstant;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Refrigerator class with properties <b>price</b>, <b>powerConsumption</b>,
+ * <b>weight</b>, <b>freezerCapacity</b>, <b>overallCapacity</b>, <b>height</b>,
+ * <b>width</b>.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class Refrigerator extends Appliance implements Serializable {
+    /**
+     * Field powerConsumption of refrigerator
+     */
     private double powerConsumption;
+    /**
+     * Field weight of refrigerator
+     */
     private double weight;
+    /**
+     * Field freezerCapacity of refrigerator
+     */
     private double freezerCapacity;
+    /**
+     * Field overallCapacity of refrigerator
+     */
     private double overallCapacity;
+    /**
+     * Field height of refrigerator
+     */
     private double height;
+    /**
+     * Field width of refrigerator
+     */
     private double width;
 
+    /**
+     * Parameterless Refrigerator constructor - creating a new Refrigerator object
+     */
     public Refrigerator() {
     }
 
+    /**
+     * Refrigerator constructor - creating a new Refrigerator object with parameters
+     *
+     * @param price            - price
+     * @param powerConsumption - power consumption
+     * @param weight           - weight
+     * @param freezerCapacity  - freezer capacity
+     * @param overallCapacity  - overall capacity
+     * @param height           - height
+     * @param width            - width
+     */
     public Refrigerator(double price, double powerConsumption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {
         super(price);
         this.powerConsumption = powerConsumption;
@@ -27,6 +67,10 @@ public class Refrigerator extends Appliance implements Serializable {
         this.width = width;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
             case SearchCriteriaFieldConstant.PRICE,
@@ -44,6 +88,59 @@ public class Refrigerator extends Appliance implements Serializable {
         };
     }
 
+    /**
+     * Function to get powerConsumption value
+     *
+     * @return powerConsumption
+     */
+    public double getPowerConsumption() {
+        return powerConsumption;
+    }
+
+    /**
+     * Function to get weight value
+     *
+     * @return weight
+     */
+    public double getWeight() {
+        return weight;
+    }
+
+    /**
+     * Function to get freezerCapacity value
+     *
+     * @return freezerCapacity
+     */
+    public double getFreezerCapacity() {
+        return freezerCapacity;
+    }
+
+    /**
+     * Function to get overallCapacity value
+     *
+     * @return overallCapacity
+     */
+    public double getOverallCapacity() {
+        return overallCapacity;
+    }
+
+    /**
+     * Function to get height value
+     *
+     * @return height
+     */
+    public double getHeight() {
+        return height;
+    }
+
+    /**
+     * Function to get width value
+     *
+     * @return width
+     */
+    public double getWidth() {
+        return width;
+    }
 
     @Override
     public boolean equals(Object o) {

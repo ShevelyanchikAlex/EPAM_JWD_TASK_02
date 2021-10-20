@@ -6,17 +6,57 @@ import by.epam.task02.constant.ApplianceNameConstant;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * VacuumCleaner class with properties <b>price</b>, <b>powerConsumption</b>,
+ * <b>filterType</b>, <b>bagType</b>, <b>wandType</b>, <b>motorSpeedRegulation</b>,
+ * <b>cleaningWidth</b>.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class VacuumCleaner extends Appliance implements Serializable {
+    /**
+     * Field powerConsumption of vacuumCleaner
+     */
     private double powerConsumption;
+    /**
+     * Field filterType of vacuumCleaner
+     */
     private FilterType filterType;
+    /**
+     * Field bagType of vacuumCleaner
+     */
     private BagType bagType;
+    /**
+     * Field wandType of vacuumCleaner
+     */
     private WandType wandType;
+    /**
+     * Field motorSpeedRegulation of vacuumCleaner
+     */
     private double motorSpeedRegulation;
+    /**
+     * Field cleaningWidth of laptop
+     */
     private double cleaningWidth;
 
+    /**
+     * Parameterless VacuumCleaner constructor - creating a new VacuumCleaner object
+     */
     public VacuumCleaner() {
     }
 
+    /**
+     * VacuumCleaner constructor - creating a new VacuumCleaner object with parameters
+     *
+     * @param price                - price
+     * @param powerConsumption     - power consumption
+     * @param filterType           - filter type
+     * @param bagType              - bag type
+     * @param wandType             - wand type
+     * @param motorSpeedRegulation - motor speed regulation
+     * @param cleaningWidth        - cleaning width
+     */
     public VacuumCleaner(double price, double powerConsumption, FilterType filterType, BagType bagType, WandType wandType, double motorSpeedRegulation, double cleaningWidth) {
         super(price);
         this.powerConsumption = powerConsumption;
@@ -27,6 +67,10 @@ public class VacuumCleaner extends Appliance implements Serializable {
         this.cleaningWidth = cleaningWidth;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
             case SearchCriteriaFieldConstant.PRICE,
@@ -44,26 +88,56 @@ public class VacuumCleaner extends Appliance implements Serializable {
         };
     }
 
+    /**
+     * Function to get powerConsumption value
+     *
+     * @return powerConsumption
+     */
     public double getPowerConsumption() {
         return powerConsumption;
     }
 
+    /**
+     * Function to get filterType value
+     *
+     * @return filterType
+     */
     public FilterType getFilterType() {
         return filterType;
     }
 
+    /**
+     * Function to get bagType value
+     *
+     * @return bagType
+     */
     public BagType getBagType() {
         return bagType;
     }
 
+    /**
+     * Function to get wandType value
+     *
+     * @return wandType
+     */
     public WandType getWandType() {
         return wandType;
     }
 
+    /**
+     * Function to get motorSpeedRegulation value
+     *
+     * @return motorSpeedRegulation
+     */
     public double getMotorSpeedRegulation() {
         return motorSpeedRegulation;
     }
 
+    /**
+     * Function to get cleaningWidth value
+     *
+     * @return cleaningWidth
+     */
     public double getCleaningWidth() {
         return cleaningWidth;
     }

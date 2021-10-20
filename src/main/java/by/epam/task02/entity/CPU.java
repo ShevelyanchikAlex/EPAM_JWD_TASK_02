@@ -1,5 +1,11 @@
 package by.epam.task02.entity;
 
+/**
+ * CPU enum for providing types of cpu.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public enum CPU {
     AMD_RYZEN_5_5600X,
     AMD_RYZEN_9_5950X,

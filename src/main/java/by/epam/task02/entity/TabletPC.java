@@ -6,16 +6,51 @@ import by.epam.task02.constant.ApplianceNameConstant;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * TabletPC class with properties <b>price</b>, <b>batteryCapacity</b>,
+ * <b>displayInches</b>, <b>memoryRom</b>, <b>flashMemoryCapacity</b>, <b>color</b>.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class TabletPC extends Appliance implements Serializable {
+    /**
+     * Field batteryCapacity of tabletPC
+     */
     private double batteryCapacity;
+    /**
+     * Field displayInches of tabletPC
+     */
     private double displayInches;
+    /**
+     * Field memoryRom of tabletPC
+     */
     private double memoryRom;
+    /**
+     * Field flashMemoryCapacity of tabletPC
+     */
     private double flashMemoryCapacity;
+    /**
+     * Field color of tabletPC
+     */
     private Color color;
 
+    /**
+     * Parameterless TabletPC constructor - creating a new TabletPC object
+     */
     public TabletPC() {
     }
 
+    /**
+     * TabletPC constructor - creating a new TabletPC object with parameters
+     *
+     * @param price               - price
+     * @param batteryCapacity     - battery capacity
+     * @param displayInches       - display inches
+     * @param memoryRom           - memory rom
+     * @param flashMemoryCapacity - flash memory capacity
+     * @param color               - color
+     */
     public TabletPC(double price, double batteryCapacity, double displayInches, double memoryRom, double flashMemoryCapacity, Color color) {
         super(price);
         this.batteryCapacity = batteryCapacity;
@@ -25,6 +60,11 @@ public class TabletPC extends Appliance implements Serializable {
         this.color = color;
     }
 
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
             case SearchCriteriaFieldConstant.PRICE,
@@ -41,22 +81,47 @@ public class TabletPC extends Appliance implements Serializable {
         };
     }
 
+    /**
+     * Function to get batteryCapacity value
+     *
+     * @return batteryCapacity
+     */
     public double getBatteryCapacity() {
         return batteryCapacity;
     }
 
+    /**
+     * Function to get displayInches value
+     *
+     * @return displayInches
+     */
     public double getDisplayInches() {
         return displayInches;
     }
 
+    /**
+     * Function to get memoryRom value
+     *
+     * @return memoryRom
+     */
     public double getMemoryRom() {
         return memoryRom;
     }
 
+    /**
+     * Function to get flashMemoryCapacity value
+     *
+     * @return flashMemoryCapacity
+     */
     public double getFlashMemoryCapacity() {
         return flashMemoryCapacity;
     }
 
+    /**
+     * Function to get color value
+     *
+     * @return color
+     */
     public Color getColor() {
         return color;
     }

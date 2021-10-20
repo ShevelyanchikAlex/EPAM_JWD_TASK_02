@@ -6,28 +6,65 @@ import by.epam.task02.constant.ApplianceNameConstant;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Laptop class with properties <b>price</b>, <b>batteryCapacity</b>,
+ * <b>os</b>, <b>memoryRom</b>, <b>cpu</b>, <b>displayInches</b>.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class Laptop extends Appliance implements Serializable {
+    /**
+     * Field batteryCapacity of laptop
+     */
     private double batteryCapacity;
+    /**
+     * Field os of laptop
+     */
     private OS os;
+    /**
+     * Field memoryRom of laptop
+     */
     private double memoryRom;
+    /**
+     * Field cpu of laptop
+     */
     private CPU cpu;
+    /**
+     * Field displayInches of laptop
+     */
     private double displayInches;
 
-
+    /**
+     * Parameterless Laptop constructor - creating a new Laptop object
+     */
     public Laptop() {
     }
 
-
-    public Laptop(double price, double battery_capacity, OS os, double memory_rom, CPU cpu, double displayInchs) {
+    /**
+     * Laptop constructor - creating a new Laptop object with parameters
+     *
+     * @param price            - price
+     * @param battery_capacity - battery capacity
+     * @param os               - operating system
+     * @param memory_rom       - memory rom
+     * @param cpu              - cpu
+     * @param displayInches    - display inches
+     */
+    public Laptop(double price, double battery_capacity, OS os, double memory_rom, CPU cpu, double displayInches) {
         super(price);
         this.batteryCapacity = battery_capacity;
         this.os = os;
         this.memoryRom = memory_rom;
         this.cpu = cpu;
-        this.displayInches = displayInchs;
+        this.displayInches = displayInches;
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
             case SearchCriteriaFieldConstant.PRICE,
@@ -45,22 +82,47 @@ public class Laptop extends Appliance implements Serializable {
     }
 
 
+    /**
+     * Function to get batteryCapacity value
+     *
+     * @return batteryCapacity
+     */
     public double getBatteryCapacity() {
         return batteryCapacity;
     }
 
+    /**
+     * Function to get OS value
+     *
+     * @return os
+     */
     public OS getOs() {
         return os;
     }
 
+    /**
+     * Function to get memoryRom value
+     *
+     * @return memoryRom
+     */
     public double getMemoryRom() {
         return memoryRom;
     }
 
+    /**
+     * Function to get cpu value
+     *
+     * @return cpu
+     */
     public CPU getCpu() {
         return cpu;
     }
 
+    /**
+     * Function to get displayInches value
+     *
+     * @return displayInches
+     */
     public double getDisplayInches() {
         return displayInches;
     }

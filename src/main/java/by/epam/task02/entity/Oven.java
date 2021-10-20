@@ -6,17 +6,56 @@ import by.epam.task02.constant.ApplianceNameConstant;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Oven class with properties <b>price</b>, <b>powerConsumption</b>,
+ * <b>weight</b>, <b>capacity</b>, <b>depth</b>, <b>height</b>, <b>width</b>.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class Oven extends Appliance implements Serializable {
+    /**
+     * Field powerConsumption of oven
+     */
     private double powerConsumption;
+    /**
+     * Field weight of oven
+     */
     private double weight;
+    /**
+     * Field capacity of oven
+     */
     private double capacity;
+    /**
+     * Field depth of oven
+     */
     private double depth;
+    /**
+     * Field height of oven
+     */
     private double height;
+    /**
+     * Field width of oven
+     */
     private double width;
 
+    /**
+     * Parameterless Oven constructor - creating a new Oven object
+     */
     public Oven() {
     }
 
+    /**
+     * Oven constructor - creating a new Oven object with parameters
+     *
+     * @param price            - price
+     * @param powerConsumption - power consumption
+     * @param weight           - weight
+     * @param capacity         - capacity
+     * @param depth            - depth
+     * @param height           - height
+     * @param width            - width
+     */
     public Oven(double price, double powerConsumption, double weight, double capacity, double depth, double height, double width) {
         super(price);
         this.powerConsumption = powerConsumption;
@@ -28,6 +67,10 @@ public class Oven extends Appliance implements Serializable {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isMatchesCriteria(String criteriaName, Object value) {
         return switch (criteriaName) {
             case SearchCriteriaFieldConstant.PRICE,
@@ -46,26 +89,56 @@ public class Oven extends Appliance implements Serializable {
     }
 
 
+    /**
+     * Function to get powerConsumption value
+     *
+     * @return powerConsumption
+     */
     public double getPowerConsumption() {
         return powerConsumption;
     }
 
+    /**
+     * Function to get weight value
+     *
+     * @return weight
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Function to get capacity value
+     *
+     * @return capacity
+     */
     public double getCapacity() {
         return capacity;
     }
 
+    /**
+     * Function to get depth value
+     *
+     * @return depth
+     */
     public double getDepth() {
         return depth;
     }
 
+    /**
+     * Function to get height value
+     *
+     * @return height
+     */
     public double getHeight() {
         return height;
     }
 
+    /**
+     * Function to get width value
+     *
+     * @return width
+     */
     public double getWidth() {
         return width;
     }
