@@ -1,6 +1,6 @@
 package by.epam.task02.dao.impl;
 
-import by.epam.task02.constant.ResourcesConstant;
+import by.epam.task02.constant.ResourceConstant;
 import by.epam.task02.dao.ApplianceDAO;
 import by.epam.task02.dao.appliance_factory.ApplianceFactory;
 import by.epam.task02.entity.Appliance;
@@ -26,7 +26,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         List<Appliance> appliances = new ArrayList<>();
         try {
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document document = documentBuilder.parse(Objects.requireNonNull(getClass().getClassLoader().getResource(ResourcesConstant.APPLIANCES_DB_XML)).getFile());
+            Document document = documentBuilder.parse(Objects.requireNonNull(getClass().getClassLoader().getResource(ResourceConstant.APPLIANCES_DB_XML)).getFile());
             document.getDocumentElement().normalize();
 
             NodeList nodeList = document.getDocumentElement().getChildNodes();
