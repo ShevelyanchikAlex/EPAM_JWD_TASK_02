@@ -30,7 +30,7 @@ public class Criteria {
     }
 
     /**
-     * Function to get groupSearchName
+     * Gets groupSearchName
      *
      * @return groupSearchName
      */
@@ -39,7 +39,7 @@ public class Criteria {
     }
 
     /**
-     * Function to get criteriaMap
+     * Gets criteriaMap
      *
      * @return criteriaMap
      */
@@ -48,7 +48,7 @@ public class Criteria {
     }
 
     /**
-     * Function to add new SearchCriteria with value to criteriaMap
+     * Adds new SearchCriteria with value to criteriaMap
      */
     public void add(String searchCriteria, Object value) {
         criteriaMap.put(searchCriteria, value);

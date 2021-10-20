@@ -68,7 +68,7 @@ public class Speakers extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get powerConsumption value
+     * Gets powerConsumption value
      *
      * @return powerConsumption
      */
@@ -77,7 +77,7 @@ public class Speakers extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get numberOfSpeakers value
+     * Gets numberOfSpeakers value
      *
      * @return numberOfSpeakers
      */
@@ -86,7 +86,7 @@ public class Speakers extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get cordLength value
+     * Gets cordLength value
      *
      * @return cordLength
      */

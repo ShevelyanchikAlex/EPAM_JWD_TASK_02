@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * PrinterApplianceInfo class.
- * It is util class for printing info about founded appliances.
+ * It is util class for printing info about found appliances.
  *
  * @author Alex Shevelyanchik
  * @version 1.0

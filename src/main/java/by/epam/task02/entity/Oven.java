@@ -90,7 +90,7 @@ public class Oven extends Appliance implements Serializable {
 
 
     /**
-     * Function to get powerConsumption value
+     * Gets powerConsumption value
      *
      * @return powerConsumption
      */
@@ -99,7 +99,7 @@ public class Oven extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get weight value
+     * Gets weight value
      *
      * @return weight
      */
@@ -108,7 +108,7 @@ public class Oven extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get capacity value
+     * Gets capacity value
      *
      * @return capacity
      */
@@ -117,7 +117,7 @@ public class Oven extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get depth value
+     * Gets depth value
      *
      * @return depth
      */
@@ -126,7 +126,7 @@ public class Oven extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get height value
+     * Gets height value
      *
      * @return height
      */
@@ -135,7 +135,7 @@ public class Oven extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get width value
+     * Gets width value
      *
      * @return width
      */

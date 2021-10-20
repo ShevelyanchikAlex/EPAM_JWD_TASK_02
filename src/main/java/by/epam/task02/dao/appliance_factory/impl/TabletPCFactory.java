@@ -9,6 +9,12 @@ import by.epam.task02.entity.criteria.SearchCriteria;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * TabletPCFactory class.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class TabletPCFactory extends ApplianceFactory {
     int price;
     double batteryCapacity;
@@ -17,6 +23,9 @@ public class TabletPCFactory extends ApplianceFactory {
     int flashMemoryCapacity;
     Color color;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Appliance createAppliance(NodeList nodeList) {
         for (int i = 0; i < nodeList.getLength(); i++) {

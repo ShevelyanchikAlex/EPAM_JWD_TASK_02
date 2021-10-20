@@ -10,6 +10,12 @@ import by.epam.task02.entity.criteria.SearchCriteria;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * LaptopFactory class.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class LaptopFactory extends ApplianceFactory {
     int price;
     double batteryCapacity;
@@ -18,6 +24,9 @@ public class LaptopFactory extends ApplianceFactory {
     CPU cpu;
     double displayInches;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Appliance createAppliance(NodeList nodeList) {
         for (int i = 0; i < nodeList.getLength(); i++) {

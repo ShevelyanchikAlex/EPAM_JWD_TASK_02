@@ -89,7 +89,7 @@ public class Refrigerator extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get powerConsumption value
+     * Gets powerConsumption value
      *
      * @return powerConsumption
      */
@@ -98,7 +98,7 @@ public class Refrigerator extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get weight value
+     * Gets weight value
      *
      * @return weight
      */
@@ -107,7 +107,7 @@ public class Refrigerator extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get freezerCapacity value
+     * Gets freezerCapacity value
      *
      * @return freezerCapacity
      */
@@ -116,7 +116,7 @@ public class Refrigerator extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get overallCapacity value
+     * Gets overallCapacity value
      *
      * @return overallCapacity
      */
@@ -125,7 +125,7 @@ public class Refrigerator extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get height value
+     * Gets height value
      *
      * @return height
      */
@@ -134,7 +134,7 @@ public class Refrigerator extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get width value
+     * Gets width value
      *
      * @return width
      */

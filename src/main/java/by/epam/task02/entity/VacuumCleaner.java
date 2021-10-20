@@ -89,7 +89,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get powerConsumption value
+     * Gets powerConsumption value
      *
      * @return powerConsumption
      */
@@ -98,7 +98,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get filterType value
+     * Gets filterType value
      *
      * @return filterType
      */
@@ -107,7 +107,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get bagType value
+     * Gets bagType value
      *
      * @return bagType
      */
@@ -116,7 +116,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get wandType value
+     * Gets wandType value
      *
      * @return wandType
      */
@@ -125,7 +125,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get motorSpeedRegulation value
+     * Gets motorSpeedRegulation value
      *
      * @return motorSpeedRegulation
      */
@@ -134,7 +134,7 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get cleaningWidth value
+     * Gets cleaningWidth value
      *
      * @return cleaningWidth
      */

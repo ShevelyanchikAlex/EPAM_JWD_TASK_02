@@ -82,7 +82,7 @@ public class TabletPC extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get batteryCapacity value
+     * Gets batteryCapacity value
      *
      * @return batteryCapacity
      */
@@ -91,7 +91,7 @@ public class TabletPC extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get displayInches value
+     * Gets displayInches value
      *
      * @return displayInches
      */
@@ -100,7 +100,7 @@ public class TabletPC extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get memoryRom value
+     * Gets memoryRom value
      *
      * @return memoryRom
      */
@@ -109,7 +109,7 @@ public class TabletPC extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get flashMemoryCapacity value
+     * Gets flashMemoryCapacity value
      *
      * @return flashMemoryCapacity
      */
@@ -118,7 +118,7 @@ public class TabletPC extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get color value
+     * Gets color value
      *
      * @return color
      */

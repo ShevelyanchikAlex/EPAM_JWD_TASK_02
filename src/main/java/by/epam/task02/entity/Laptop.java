@@ -83,7 +83,7 @@ public class Laptop extends Appliance implements Serializable {
 
 
     /**
-     * Function to get batteryCapacity value
+     * Gets batteryCapacity value
      *
      * @return batteryCapacity
      */
@@ -92,7 +92,7 @@ public class Laptop extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get OS value
+     * Gets OS value
      *
      * @return os
      */
@@ -101,7 +101,7 @@ public class Laptop extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get memoryRom value
+     * Gets memoryRom value
      *
      * @return memoryRom
      */
@@ -110,7 +110,7 @@ public class Laptop extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get cpu value
+     * Gets cpu value
      *
      * @return cpu
      */
@@ -119,7 +119,7 @@ public class Laptop extends Appliance implements Serializable {
     }
 
     /**
-     * Function to get displayInches value
+     * Gets displayInches value
      *
      * @return displayInches
      */

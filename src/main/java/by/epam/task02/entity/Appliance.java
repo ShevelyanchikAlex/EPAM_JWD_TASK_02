@@ -52,7 +52,7 @@ public class Appliance implements Serializable {
     }
 
     /**
-     * Function to get price value
+     * Gets price value
      *
      * @return price
      */

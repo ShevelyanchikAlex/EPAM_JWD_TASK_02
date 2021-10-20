@@ -7,8 +7,20 @@ import by.epam.task02.service.validation.impl.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * CriteriaValidatorFactory class with properties <b>instance</b> and <b>validators</b>.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class CriteriaValidatorFactory {
+    /**
+     * Field instance - instance of CriteriaValidatorFactory
+     */
     private static final CriteriaValidatorFactory instance = new CriteriaValidatorFactory();
+    /**
+     * Field validators - HashMap of validators
+     */
     private final Map<String, CriteriaValidator> validators = new HashMap<>();
 
     {
@@ -56,13 +68,28 @@ public class CriteriaValidatorFactory {
         validators.put(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.name(), new DoubleValidator());
     }
 
+    /**
+     * Private constructor to close the ability of instantiating CriteriaValidatorFactory.
+     */
     private CriteriaValidatorFactory() {
     }
 
+    /**
+     * Gets instance of CriteriaValidatorFactory
+     *
+     * @return instance
+     */
     public static CriteriaValidatorFactory getInstance() {
         return instance;
     }
 
+    /**
+     * Gets validator for a specific search criteria
+     * If there is no such search criteria, an IllegalArgumentException is thrown.
+     *
+     * @param criteriaName - criteriaName to get validator
+     * @return CriteriaValidator - specific validator
+     */
     public CriteriaValidator getValidator(String criteriaName) {
         if (validators.containsKey(criteriaName)) {
             return validators.get(criteriaName);

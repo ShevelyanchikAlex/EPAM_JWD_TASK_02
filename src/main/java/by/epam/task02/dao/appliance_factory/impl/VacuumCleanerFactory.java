@@ -7,6 +7,12 @@ import by.epam.task02.entity.criteria.SearchCriteria;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * VacuumCleanerFactory class.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class VacuumCleanerFactory extends ApplianceFactory {
     int price;
     int powerConsumption;
@@ -16,6 +22,9 @@ public class VacuumCleanerFactory extends ApplianceFactory {
     double motorSpeedRegulation;
     double cleaningWidth;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Appliance createAppliance(NodeList nodeList) {
         for (int i = 0; i < nodeList.getLength(); i++) {

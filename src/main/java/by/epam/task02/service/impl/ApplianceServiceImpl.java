@@ -12,8 +12,18 @@ import by.epam.task02.service.validation.Validator;
 
 import java.util.List;
 
+/**
+ * ApplianceServiceImpl class.
+ * Implements ApplianceService and works with ApplianceDaoImpl.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class ApplianceServiceImpl implements ApplianceService {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Appliance> find(Criteria criteria) throws ServiceException {
         if (!Validator.isCriteriaValid(criteria)) {

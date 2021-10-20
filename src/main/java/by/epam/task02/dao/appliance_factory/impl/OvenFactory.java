@@ -8,6 +8,12 @@ import by.epam.task02.entity.criteria.SearchCriteria;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * OvenFactory class.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class OvenFactory extends ApplianceFactory {
     int price;
     double powerConsumption;
@@ -17,6 +23,9 @@ public class OvenFactory extends ApplianceFactory {
     double height;
     double width;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Appliance createAppliance(NodeList nodeList) {
         for (int i = 0; i < nodeList.getLength(); i++) {

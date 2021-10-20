@@ -8,12 +8,21 @@ import by.epam.task02.entity.criteria.SearchCriteria;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * SpeakersFactory class.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class SpeakersFactory extends ApplianceFactory {
     int price;
     double powerConsumption;
     int numberOfSpeakers;
     double cordLength;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Appliance createAppliance(NodeList nodeList) {
         for (int i = 0; i < nodeList.getLength(); i++) {

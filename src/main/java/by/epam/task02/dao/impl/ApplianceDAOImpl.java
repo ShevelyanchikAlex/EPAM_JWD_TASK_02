@@ -19,8 +19,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * ApplianceDAOImpl class.
+ * Implements ApplianceDAO.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class ApplianceDAOImpl implements ApplianceDAO {
 
+    /**
+     * Reads the information from xml file (the name of this file
+     * is ResourceConstant.APPLIANCES_DB_XML, it is in the resource folder).
+     * {@inheritDoc}
+     */
     @Override
     public List<Appliance> find(Criteria criteria) throws DaoException {
         List<Appliance> appliances = new ArrayList<>();

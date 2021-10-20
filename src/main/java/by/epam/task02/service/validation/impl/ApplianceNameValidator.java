@@ -3,11 +3,17 @@ package by.epam.task02.service.validation.impl;
 import by.epam.task02.constant.ApplianceNameConstant;
 import by.epam.task02.service.validation.CriteriaValidator;
 
+/**
+ * ApplianceNameValidator class.
+ *
+ * @author Alex Shevelyanchik
+ * @version 1.0
+ */
 public class ApplianceNameValidator implements CriteriaValidator {
 
-    public ApplianceNameValidator() {
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isCriteriaValid(Object value) {
         try {
