@@ -7,7 +7,7 @@ package by.epam.task02.constant;
  * @author Alex Shevelyanchik
  * @version 1.0
  */
-public final class ApplianceNameConstant {
+public final class ApplianceNameConst {
 
     public static final String LAPTOP = "laptop";
     public static final String OVEN = "oven";
@@ -17,8 +17,8 @@ public final class ApplianceNameConstant {
     public static final String VACUUM_CLEANER = "vacuumCleaner";
 
     /**
-     * Private constructor to close the ability of instantiating ApplianceNameConstant.
+     * Private constructor to close the ability of instantiating ApplianceNameConst.
      */
-    private ApplianceNameConstant() {
+    private ApplianceNameConst() {
     }
 }

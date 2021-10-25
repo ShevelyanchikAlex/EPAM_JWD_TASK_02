@@ -23,7 +23,7 @@ public class Criteria {
     /**
      * Criteria constructor - creating a new Criteria object with parameters
      *
-     * @param groupSearchName - group search name
+     * @param groupSearchName group search name
      */
     public Criteria(String groupSearchName) {
         this.groupSearchName = groupSearchName;

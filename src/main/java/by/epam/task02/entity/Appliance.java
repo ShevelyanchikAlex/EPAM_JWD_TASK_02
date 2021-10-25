@@ -1,7 +1,5 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.SearchCriteriaFieldConstant;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -27,28 +25,10 @@ public class Appliance implements Serializable {
     /**
      * Appliance constructor - creating a new Appliance object with a parameter
      *
-     * @param price - price
+     * @param price price
      */
     public Appliance(double price) {
         this.price = price;
-    }
-
-    /**
-     * Criterion match method.
-     * For inheritors of the Appliance class this method should be overridden.
-     *
-     * @param criteriaName - name of criteria
-     * @param value        - value to compare by criteria
-     * @return true if appliance matches the given criteriaName and value. Otherwise, it returns false.
-     */
-    public boolean isMatchesCriteria(String criteriaName, Object value) {
-        return switch (criteriaName) {
-            case SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE -> price > (double) value;
-            case SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE -> price < (double) value;
-            case SearchCriteriaFieldConstant.PRICE,
-                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> price == (double) value;
-            default -> false;
-        };
     }
 
     /**

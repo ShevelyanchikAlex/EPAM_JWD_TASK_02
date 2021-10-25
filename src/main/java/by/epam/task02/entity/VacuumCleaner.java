@@ -1,8 +1,5 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.SearchCriteriaFieldConstant;
-import by.epam.task02.constant.ApplianceNameConstant;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -49,13 +46,13 @@ public class VacuumCleaner extends Appliance implements Serializable {
     /**
      * VacuumCleaner constructor - creating a new VacuumCleaner object with parameters
      *
-     * @param price                - price
-     * @param powerConsumption     - power consumption
-     * @param filterType           - filter type
-     * @param bagType              - bag type
-     * @param wandType             - wand type
-     * @param motorSpeedRegulation - motor speed regulation
-     * @param cleaningWidth        - cleaning width
+     * @param price                price
+     * @param powerConsumption     power consumption
+     * @param filterType           filter type
+     * @param bagType              bag type
+     * @param wandType             wand type
+     * @param motorSpeedRegulation motor speed regulation
+     * @param cleaningWidth        cleaning width
      */
     public VacuumCleaner(double price, double powerConsumption, FilterType filterType, BagType bagType, WandType wandType, double motorSpeedRegulation, double cleaningWidth) {
         super(price);
@@ -65,27 +62,6 @@ public class VacuumCleaner extends Appliance implements Serializable {
         this.wandType = wandType;
         this.motorSpeedRegulation = motorSpeedRegulation;
         this.cleaningWidth = cleaningWidth;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isMatchesCriteria(String criteriaName, Object value) {
-        return switch (criteriaName) {
-            case SearchCriteriaFieldConstant.PRICE,
-                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
-                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
-                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
-            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.VACUUM_CLEANER.equals(value);
-            case SearchCriteriaFieldConstant.POWER_CONSUMPTION -> (double) value == powerConsumption;
-            case SearchCriteriaFieldConstant.FILTER_TYPE -> filterType.equals(FilterType.valueOf((String) value));
-            case SearchCriteriaFieldConstant.BAG_TYPE -> bagType.equals(BagType.valueOf((String) value));
-            case SearchCriteriaFieldConstant.WAND_TYPE -> wandType.equals(WandType.valueOf((String) value));
-            case SearchCriteriaFieldConstant.MOTOR_SPEED_REGULATION -> (double) value == motorSpeedRegulation;
-            case SearchCriteriaFieldConstant.CLEANING_WIDTH -> (double) value == cleaningWidth;
-            default -> false;
-        };
     }
 
     /**

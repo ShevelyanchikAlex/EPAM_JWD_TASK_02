@@ -1,8 +1,5 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.SearchCriteriaFieldConstant;
-import by.epam.task02.constant.ApplianceNameConstant;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -44,12 +41,12 @@ public class Laptop extends Appliance implements Serializable {
     /**
      * Laptop constructor - creating a new Laptop object with parameters
      *
-     * @param price            - price
-     * @param battery_capacity - battery capacity
-     * @param os               - operating system
-     * @param memory_rom       - memory rom
-     * @param cpu              - cpu
-     * @param displayInches    - display inches
+     * @param price            price
+     * @param battery_capacity battery capacity
+     * @param os               operating system
+     * @param memory_rom       memory rom
+     * @param cpu              cpu
+     * @param displayInches    display inches
      */
     public Laptop(double price, double battery_capacity, OS os, double memory_rom, CPU cpu, double displayInches) {
         super(price);
@@ -59,28 +56,6 @@ public class Laptop extends Appliance implements Serializable {
         this.cpu = cpu;
         this.displayInches = displayInches;
     }
-
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isMatchesCriteria(String criteriaName, Object value) {
-        return switch (criteriaName) {
-            case SearchCriteriaFieldConstant.PRICE,
-                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
-                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
-                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
-            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.LAPTOP.equals(value);
-            case SearchCriteriaFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
-            case SearchCriteriaFieldConstant.OS -> os.equals(OS.valueOf((String) value));
-            case SearchCriteriaFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
-            case SearchCriteriaFieldConstant.CPU -> cpu.equals(CPU.valueOf((String) value));
-            case SearchCriteriaFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
-            default -> false;
-        };
-    }
-
 
     /**
      * Gets batteryCapacity value

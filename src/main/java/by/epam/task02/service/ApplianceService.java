@@ -18,11 +18,23 @@ public interface ApplianceService {
     /**
      * Validates search criteria and finds all appliances that match the given search criteria.
      *
-     * @param criteria - SearchCriteria with which sorting occurs
-     * @return List<Appliance> - list of appliances found
-     * @throws DaoException     - DaoException when throwing an exception on a dao layer
-     * @throws ServiceException - ServiceException when throwing an exception on a service layer
+     * @param criteria SearchCriteria with which sorting occurs
+     * @return List<Appliance>  list of appliances found
+     * @throws DaoException     when throwing an exception on a dao layer
+     * @throws ServiceException when throwing an exception on a service layer
      */
     List<Appliance> find(Criteria criteria) throws DaoException, ServiceException;
+
+
+    /**
+     * Adds Appliance to xml-file.
+     *
+     * @param applianceName name of appliance
+     * @param appliance     appliance
+     * @return true when added without exception, otherwise false
+     * @throws DaoException     when throwing an exception on a dao layer
+     * @throws ServiceException when throwing an exception on a service layer
+     */
+    boolean add(String applianceName, Appliance appliance) throws DaoException, ServiceException;
 
 }

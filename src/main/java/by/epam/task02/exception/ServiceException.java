@@ -19,7 +19,7 @@ public class ServiceException extends Exception {
     /**
      * ServiceException constructor with parameter
      *
-     * @param message - message
+     * @param message message
      */
     public ServiceException(String message) {
         super(message);
@@ -28,8 +28,8 @@ public class ServiceException extends Exception {
     /**
      * ServiceException constructor with parameters
      *
-     * @param message - message
-     * @param e       - exception
+     * @param message message
+     * @param e       exception
      */
     public ServiceException(String message, Exception e) {
         super(message, e);
@@ -38,7 +38,7 @@ public class ServiceException extends Exception {
     /**
      * ServiceException constructor with parameter
      *
-     * @param e - exception
+     * @param e exception
      */
     public ServiceException(Exception e) {
         super(e);

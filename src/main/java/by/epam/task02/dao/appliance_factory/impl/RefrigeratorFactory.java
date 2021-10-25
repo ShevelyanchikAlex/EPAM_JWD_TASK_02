@@ -1,6 +1,6 @@
 package by.epam.task02.dao.appliance_factory.impl;
 
-import by.epam.task02.constant.ExceptionMessageConstant;
+import by.epam.task02.constant.ExceptionMessageConst;
 import by.epam.task02.dao.appliance_factory.ApplianceFactory;
 import by.epam.task02.entity.Appliance;
 import by.epam.task02.entity.Refrigerator;
@@ -15,13 +15,13 @@ import org.w3c.dom.NodeList;
  * @version 1.0
  */
 public class RefrigeratorFactory extends ApplianceFactory {
-    int price;
-    double powerConsumption;
-    double weight;
-    double freezerCapacity;
-    double overallCapacity;
-    double height;
-    double width;
+    private double price;
+    private double powerConsumption;
+    private double weight;
+    private double freezerCapacity;
+    private double overallCapacity;
+    private double height;
+    private double width;
 
     /**
      * {@inheritDoc}
@@ -35,14 +35,14 @@ public class RefrigeratorFactory extends ApplianceFactory {
                 SearchCriteria.Refrigerator refrigeratorSearchCriteria = SearchCriteria.Refrigerator.valueOf(nodeList.item(i).getNodeName().toUpperCase());
 
                 switch (refrigeratorSearchCriteria) {
-                    case PRICE -> price = Integer.parseInt(value);
+                    case PRICE -> price = Double.parseDouble(value);
                     case POWER_CONSUMPTION -> powerConsumption = Double.parseDouble(value);
                     case WEIGHT -> weight = Double.parseDouble(value);
                     case FREEZER_CAPACITY -> freezerCapacity = Double.parseDouble(value);
                     case OVERALL_CAPACITY -> overallCapacity = Double.parseDouble(value);
                     case HEIGHT -> height = Double.parseDouble(value);
                     case WIDTH -> width = Double.parseDouble(value);
-                    default -> throw new IllegalArgumentException(ExceptionMessageConstant.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
+                    default -> throw new IllegalArgumentException(ExceptionMessageConst.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
                 }
 
             }

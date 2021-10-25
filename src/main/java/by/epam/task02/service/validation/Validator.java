@@ -13,7 +13,7 @@ public class Validator {
     /**
      * Validates criteria by its SearchCriteria.
      *
-     * @param criteria - criteria to validate
+     * @param criteria criteria to validate
      * @return true if criteria is valid. Otherwise, false.
      */
     public static boolean isCriteriaValid(Criteria criteria) {

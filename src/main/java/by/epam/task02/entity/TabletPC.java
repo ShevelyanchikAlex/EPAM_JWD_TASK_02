@@ -1,8 +1,5 @@
 package by.epam.task02.entity;
 
-import by.epam.task02.constant.SearchCriteriaFieldConstant;
-import by.epam.task02.constant.ApplianceNameConstant;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -44,12 +41,12 @@ public class TabletPC extends Appliance implements Serializable {
     /**
      * TabletPC constructor - creating a new TabletPC object with parameters
      *
-     * @param price               - price
-     * @param batteryCapacity     - battery capacity
-     * @param displayInches       - display inches
-     * @param memoryRom           - memory rom
-     * @param flashMemoryCapacity - flash memory capacity
-     * @param color               - color
+     * @param price               price
+     * @param batteryCapacity     battery capacity
+     * @param displayInches       display inches
+     * @param memoryRom           memory rom
+     * @param flashMemoryCapacity flash memory capacity
+     * @param color               color
      */
     public TabletPC(double price, double batteryCapacity, double displayInches, double memoryRom, double flashMemoryCapacity, Color color) {
         super(price);
@@ -58,27 +55,6 @@ public class TabletPC extends Appliance implements Serializable {
         this.memoryRom = memoryRom;
         this.flashMemoryCapacity = flashMemoryCapacity;
         this.color = color;
-    }
-
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isMatchesCriteria(String criteriaName, Object value) {
-        return switch (criteriaName) {
-            case SearchCriteriaFieldConstant.PRICE,
-                    SearchCriteriaFieldConstant.MORE_THAN_CURRENT_PRICE,
-                    SearchCriteriaFieldConstant.LESS_THAN_CURRENT_PRICE,
-                    SearchCriteriaFieldConstant.EQUAL_CURRENT_PRICE -> super.isMatchesCriteria(criteriaName, value);
-            case SearchCriteriaFieldConstant.APPLIANCE_NAME -> ApplianceNameConstant.TABLET_PC.equals(value);
-            case SearchCriteriaFieldConstant.BATTERY_CAPACITY -> (double) value == batteryCapacity;
-            case SearchCriteriaFieldConstant.DISPLAY_INCHES -> (double) value == displayInches;
-            case SearchCriteriaFieldConstant.MEMORY_ROM -> (double) value == memoryRom;
-            case SearchCriteriaFieldConstant.FLASH_MEMORY_CAPACITY -> (double) value == flashMemoryCapacity;
-            case SearchCriteriaFieldConstant.COLOR -> color.equals(Color.valueOf((String) value));
-            default -> false;
-        };
     }
 
     /**

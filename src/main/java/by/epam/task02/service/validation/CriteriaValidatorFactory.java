@@ -1,6 +1,6 @@
 package by.epam.task02.service.validation;
 
-import by.epam.task02.constant.ExceptionMessageConstant;
+import by.epam.task02.constant.ExceptionMessageConst;
 import by.epam.task02.entity.criteria.SearchCriteria;
 import by.epam.task02.service.validation.impl.*;
 
@@ -87,14 +87,14 @@ public class CriteriaValidatorFactory {
      * Gets validator for a specific search criteria
      * If there is no such search criteria, an IllegalArgumentException is thrown.
      *
-     * @param criteriaName - criteriaName to get validator
+     * @param criteriaName criteriaName to get validator
      * @return CriteriaValidator - specific validator
      */
     public CriteriaValidator getValidator(String criteriaName) {
         if (validators.containsKey(criteriaName)) {
             return validators.get(criteriaName);
         }
-        throw new IllegalArgumentException(ExceptionMessageConstant.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
+        throw new IllegalArgumentException(ExceptionMessageConst.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
     }
 
 }

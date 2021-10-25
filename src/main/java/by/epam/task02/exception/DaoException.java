@@ -19,7 +19,7 @@ public class DaoException extends Exception {
     /**
      * DaoException constructor with parameter
      *
-     * @param message - message
+     * @param message message
      */
     public DaoException(String message) {
         super(message);
@@ -28,8 +28,8 @@ public class DaoException extends Exception {
     /**
      * DaoException constructor with parameters
      *
-     * @param message - message
-     * @param e       - exception
+     * @param message message
+     * @param e       exception
      */
     public DaoException(String message, Exception e) {
         super(message, e);
@@ -38,7 +38,7 @@ public class DaoException extends Exception {
     /**
      * DaoException constructor with parameter
      *
-     * @param e - exception
+     * @param e exception
      */
     public DaoException(Exception e) {
         super(e);
