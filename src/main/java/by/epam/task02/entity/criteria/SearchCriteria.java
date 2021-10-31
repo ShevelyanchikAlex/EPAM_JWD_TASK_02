@@ -10,59 +10,113 @@ package by.epam.task02.entity.criteria;
 public final class SearchCriteria {
 
     /**
-     * Contains General search criteria
+     * Contains {@link General} search criteria
      */
     public enum General {
-        NAME, PRICE
+        NAME
     }
 
     /**
-     * Contains Oven search criteria
+     * Contains {@link by.epam.task02.entity.Oven} search criteria
      */
     public enum Oven {
         PRICE, POWER_CONSUMPTION, WEIGHT, CAPACITY, DEPTH, HEIGHT, WIDTH
     }
 
     /**
-     * Contains Laptop search criteria
+     * Contains {@link by.epam.task02.entity.Laptop} search criteria
      */
     public enum Laptop {
         PRICE, BATTERY_CAPACITY, OS, MEMORY_ROM, CPU, DISPLAY_INCHES
     }
 
     /**
-     * Contains Refrigerator search criteria
+     * Contains {@link by.epam.task02.entity.Refrigerator} search criteria
      */
     public enum Refrigerator {
         PRICE, POWER_CONSUMPTION, WEIGHT, FREEZER_CAPACITY, OVERALL_CAPACITY, HEIGHT, WIDTH
     }
 
     /**
-     * Contains VacuumCleaner search criteria
+     * Contains {@link by.epam.task02.entity.VacuumCleaner} search criteria
      */
     public enum VacuumCleaner {
         PRICE, POWER_CONSUMPTION, FILTER_TYPE, BAG_TYPE, WAND_TYPE, MOTOR_SPEED_REGULATION, CLEANING_WIDTH
     }
 
     /**
-     * Contains TabletPC search criteria
+     * Contains {@link by.epam.task02.entity.TabletPC} search criteria
      */
     public enum TabletPC {
         PRICE, BATTERY_CAPACITY, DISPLAY_INCHES, MEMORY_ROM, FLASH_MEMORY_CAPACITY, COLOR
     }
 
     /**
-     * Contains Speakers search criteria
+     * Contains {@link by.epam.task02.entity.Speakers} search criteria
      */
     public enum Speakers {
         PRICE, POWER_CONSUMPTION, NUMBER_OF_SPEAKERS, CORD_LENGTH
     }
 
     /**
-     * Contains PriceFilter search criteria
+     * Contains {@link PriceFilter} search criteria
      */
     public enum PriceFilter {
         MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE
+    }
+
+
+    /*
+     * ApplianceSearchCriteria enums with PriceFilter for ApplianceMatcherFactory.
+     */
+
+
+    /**
+     * Contains {@link Oven} and {@link PriceFilter} search criteria
+     */
+    public enum OvenWithPriceFilter {
+        NAME, MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE,
+        PRICE, POWER_CONSUMPTION, WEIGHT, CAPACITY, DEPTH, HEIGHT, WIDTH
+    }
+
+    /**
+     * Contains {@link Laptop} and {@link PriceFilter} search criteria
+     */
+    public enum LaptopWithPriceFilter {
+        NAME, MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE,
+        PRICE, BATTERY_CAPACITY, OS, MEMORY_ROM, CPU, DISPLAY_INCHES
+    }
+
+    /**
+     * Contains {@link Refrigerator} and {@link PriceFilter} search criteria
+     */
+    public enum RefrigeratorWithPriceFilter {
+        NAME, MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE,
+        PRICE, POWER_CONSUMPTION, WEIGHT, FREEZER_CAPACITY, OVERALL_CAPACITY, HEIGHT, WIDTH
+    }
+
+    /**
+     * Contains  {@link VacuumCleaner} and {@link PriceFilter} search criteria
+     */
+    public enum VacuumCleanerWithPriceFilter {
+        NAME, MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE,
+        PRICE, POWER_CONSUMPTION, FILTER_TYPE, BAG_TYPE, WAND_TYPE, MOTOR_SPEED_REGULATION, CLEANING_WIDTH
+    }
+
+    /**
+     * Contains {@link TabletPC} and {@link PriceFilter} search criteria
+     */
+    public enum TabletPCWithPriceFilter {
+        NAME, MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE,
+        PRICE, BATTERY_CAPACITY, DISPLAY_INCHES, MEMORY_ROM, FLASH_MEMORY_CAPACITY, COLOR
+    }
+
+    /**
+     * Contains {@link Speakers} and {@link PriceFilter} search criteria
+     */
+    public enum SpeakersWithPriceFilter {
+        NAME, MORE_THAN_CURRENT_PRICE, LESS_THAN_CURRENT_PRICE, EQUAL_CURRENT_PRICE,
+        PRICE, POWER_CONSUMPTION, NUMBER_OF_SPEAKERS, CORD_LENGTH
     }
 
     /**

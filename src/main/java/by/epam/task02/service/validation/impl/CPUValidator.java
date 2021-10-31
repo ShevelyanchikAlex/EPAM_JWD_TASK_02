@@ -19,7 +19,7 @@ public class CPUValidator implements CriteriaValidator {
         try {
             CPU.valueOf((String) value);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

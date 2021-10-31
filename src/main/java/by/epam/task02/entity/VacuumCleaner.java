@@ -13,44 +13,44 @@ import java.util.Objects;
  */
 public class VacuumCleaner extends Appliance implements Serializable {
     /**
-     * Field powerConsumption of vacuumCleaner
+     * Field powerConsumption of {@link VacuumCleaner}
      */
     private double powerConsumption;
     /**
-     * Field filterType of vacuumCleaner
+     * Field {@link FilterType} of {@link VacuumCleaner}
      */
     private FilterType filterType;
     /**
-     * Field bagType of vacuumCleaner
+     * Field {@link BagType} of {@link VacuumCleaner}
      */
     private BagType bagType;
     /**
-     * Field wandType of vacuumCleaner
+     * Field {@link WandType} of {@link VacuumCleaner}
      */
     private WandType wandType;
     /**
-     * Field motorSpeedRegulation of vacuumCleaner
+     * Field motorSpeedRegulation of {@link VacuumCleaner}
      */
     private double motorSpeedRegulation;
     /**
-     * Field cleaningWidth of laptop
+     * Field cleaningWidth of {@link VacuumCleaner}
      */
     private double cleaningWidth;
 
     /**
-     * Parameterless VacuumCleaner constructor - creating a new VacuumCleaner object
+     * Parameterless {@link VacuumCleaner} constructor
      */
     public VacuumCleaner() {
     }
 
     /**
-     * VacuumCleaner constructor - creating a new VacuumCleaner object with parameters
+     * {@link VacuumCleaner} constructor with parameters
      *
      * @param price                price
      * @param powerConsumption     power consumption
-     * @param filterType           filter type
-     * @param bagType              bag type
-     * @param wandType             wand type
+     * @param filterType           {@link FilterType}
+     * @param bagType              {@link BagType}
+     * @param wandType             {@link WandType}
      * @param motorSpeedRegulation motor speed regulation
      * @param cleaningWidth        cleaning width
      */
@@ -74,27 +74,27 @@ public class VacuumCleaner extends Appliance implements Serializable {
     }
 
     /**
-     * Gets filterType value
+     * Gets {@link FilterType} value
      *
-     * @return filterType
+     * @return {@link FilterType}
      */
     public FilterType getFilterType() {
         return filterType;
     }
 
     /**
-     * Gets bagType value
+     * Gets {@link BagType} value
      *
-     * @return bagType
+     * @return {@link BagType}
      */
     public BagType getBagType() {
         return bagType;
     }
 
     /**
-     * Gets wandType value
+     * Gets {@link WandType} value
      *
-     * @return wandType
+     * @return {@link WandType}
      */
     public WandType getWandType() {
         return wandType;

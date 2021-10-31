@@ -1,11 +1,11 @@
 package by.epam.task02.main;
 
-import by.epam.task02.constant.ApplianceNameConst;
+import by.epam.task02.dao.constant.ApplianceTagName;
 import by.epam.task02.entity.*;
 import by.epam.task02.entity.criteria.Criteria;
 import by.epam.task02.entity.criteria.SearchCriteria;
-import by.epam.task02.exception.DaoException;
-import by.epam.task02.exception.ServiceException;
+import by.epam.task02.dao.DaoException;
+import by.epam.task02.service.ServiceException;
 import by.epam.task02.service.ApplianceService;
 import by.epam.task02.service.ServiceFactory;
 
@@ -22,7 +22,7 @@ public class Main {
 
             //////////////////////////////////////////////////////////////////
 
-            Criteria criteriaLaptop = new Criteria(ApplianceNameConst.LAPTOP);
+            Criteria criteriaLaptop = new Criteria(ApplianceTagName.LAPTOP.name());
             criteriaLaptop.add(SearchCriteria.PriceFilter.LESS_THAN_CURRENT_PRICE.name(), 1000.0);
 
             appliances = service.find(criteriaLaptop);
@@ -32,7 +32,7 @@ public class Main {
 
             //////////////////////////////////////////////////////////////////
 
-            Criteria criteriaOven = new Criteria(ApplianceNameConst.OVEN);
+            Criteria criteriaOven = new Criteria(ApplianceTagName.OVEN.name());
             criteriaOven.add(SearchCriteria.Oven.HEIGHT.name(), 45.0);
             criteriaOven.add(SearchCriteria.Oven.DEPTH.name(), 60.0);
 
@@ -43,7 +43,7 @@ public class Main {
 
             //////////////////////////////////////////////////////////////////
 
-            Criteria criteriaTabletPC = new Criteria(ApplianceNameConst.TABLET_PC);
+            Criteria criteriaTabletPC = new Criteria(ApplianceTagName.TABLET_PC.name());
             criteriaTabletPC.add(SearchCriteria.TabletPC.COLOR.name(), "BLUE");
             criteriaTabletPC.add(SearchCriteria.TabletPC.DISPLAY_INCHES.name(), 15.0);
             criteriaTabletPC.add(SearchCriteria.TabletPC.MEMORY_ROM.name(), 12000.0);
@@ -55,7 +55,7 @@ public class Main {
 
             //////////////////////////////////////////////////////////////////
 
-            Criteria criteriaSpeakers = new Criteria(ApplianceNameConst.SPEAKERS);
+            Criteria criteriaSpeakers = new Criteria(ApplianceTagName.SPEAKERS.name());
             criteriaSpeakers.add(SearchCriteria.PriceFilter.MORE_THAN_CURRENT_PRICE.name(), 300.0);
 
             appliances = service.find(criteriaSpeakers);
@@ -75,9 +75,9 @@ public class Main {
 
             //////////////////////////////////////////////////////////////////
 
-            service.add(ApplianceNameConst.LAPTOP, new Laptop(1000.0, 1000.0, OS.LINUX, 100.0, CPU.AMD_RYZEN_5_5600X, 13.6));
+            service.add(ApplianceTagName.LAPTOP.name(), new Laptop(1000.0, 1000.0, OS.LINUX, 100.0, CPU.AMD_RYZEN_5_5600X, 13.6));
 
-        } catch (DaoException | ServiceException exception) {
+        } catch (DaoException | ServiceException | NullPointerException exception) {
             System.err.println(exception.getLocalizedMessage());
             exception.printStackTrace();
         }

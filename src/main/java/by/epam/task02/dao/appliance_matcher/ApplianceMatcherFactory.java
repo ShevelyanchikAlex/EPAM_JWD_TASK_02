@@ -1,7 +1,6 @@
 package by.epam.task02.dao.appliance_matcher;
 
-import by.epam.task02.constant.ApplianceNameConst;
-import by.epam.task02.constant.ExceptionMessageConst;
+import by.epam.task02.dao.constant.ApplianceTagName;
 import by.epam.task02.dao.appliance_matcher.impl.*;
 import by.epam.task02.entity.Appliance;
 
@@ -15,7 +14,7 @@ public abstract class ApplianceMatcherFactory {
     /**
      * Criterion match method.
      *
-     * @param appliance    specific appliance
+     * @param appliance    specific {@link Appliance}
      * @param criteriaName name of criteria by which the comparison will be made
      * @param value        value to compare by criteria
      * @return true if appliance matches the given criteriaName and value. Otherwise, it returns false.
@@ -23,21 +22,25 @@ public abstract class ApplianceMatcherFactory {
     public abstract boolean isMatchesCriteria(Appliance appliance, String criteriaName, Object value);
 
     /**
-     * Gets the Matcher of appliance from its applianceName.
-     * If an error occurs, an IllegalArgumentException is thrown.
+     * Gets {@link ApplianceMatcherFactory} of {@link Appliance} from its applianceName.
+     * If an error occurs, an {@link IllegalArgumentException} is thrown.
      *
-     * @param applianceName name of appliance
-     * @return ApplianceMatcherFactory
+     * @param applianceName name of {@link Appliance}
+     * @return {@link ApplianceMatcherFactory}
      */
-    public static ApplianceMatcherFactory getMatcher(String applianceName) {
-        return switch (applianceName) {
-            case ApplianceNameConst.LAPTOP -> new LaptopMatcher();
-            case ApplianceNameConst.OVEN -> new OvenMatcher();
-            case ApplianceNameConst.REFRIGERATOR -> new RefrigeratorMatcher();
-            case ApplianceNameConst.SPEAKERS -> new SpeakersMatcher();
-            case ApplianceNameConst.TABLET_PC -> new TabletPCMatcher();
-            case ApplianceNameConst.VACUUM_CLEANER -> new VacuumCleanerMatcher();
-            default -> throw new IllegalArgumentException(ExceptionMessageConst.ILLEGAL_ARGUMENT_MATCHER_FACTORY_EXCEPTION_MSG);
-        };
+    public static ApplianceMatcherFactory getMatcher(String applianceName) throws EnumConstantNotPresentException {
+        try {
+            return switch (ApplianceTagName.valueOf(applianceName)) {
+                case LAPTOP -> new LaptopMatcher();
+                case OVEN -> new OvenMatcher();
+                case REFRIGERATOR -> new RefrigeratorMatcher();
+                case SPEAKERS -> new SpeakersMatcher();
+                case TABLET_PC -> new TabletPCMatcher();
+                case VACUUM_CLEANER -> new VacuumCleanerMatcher();
+            };
+        } catch (IllegalArgumentException e) {
+            throw new EnumConstantNotPresentException(ApplianceTagName.class, applianceName);
+        }
     }
+
 }

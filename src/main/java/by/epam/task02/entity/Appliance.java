@@ -12,18 +12,18 @@ import java.util.Objects;
 public class Appliance implements Serializable {
 
     /**
-     * Field price - price of appliance
+     * Field price - price of {@link Appliance}
      */
     private double price;
 
     /**
-     * Parameterless Appliance constructor - creating a new Appliance object
+     * Parameterless {@link Appliance} constructor
      */
     public Appliance() {
     }
 
     /**
-     * Appliance constructor - creating a new Appliance object with a parameter
+     * {@link Appliance} constructor with a parameter
      *
      * @param price price
      */

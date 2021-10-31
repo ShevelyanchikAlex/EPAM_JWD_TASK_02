@@ -1,7 +1,6 @@
 package by.epam.task02.dao.appliance_factory;
 
-import by.epam.task02.constant.ApplianceNameConst;
-import by.epam.task02.constant.ExceptionMessageConst;
+import by.epam.task02.dao.constant.ApplianceTagName;
 import by.epam.task02.dao.appliance_factory.impl.*;
 import by.epam.task02.entity.Appliance;
 import org.w3c.dom.NodeList;
@@ -17,28 +16,31 @@ public abstract class ApplianceFactory {
     /**
      * Creates a specific appliance.
      *
-     * @param nodeList nodeList
-     * @return Appliance specific appliance
+     * @param nodeList {@link NodeList}
+     * @return {@link Appliance} specific appliance
      */
     public abstract Appliance createAppliance(NodeList nodeList);
 
     /**
-     * Gets the Factory of appliance from its applianceName.
-     * If an error occurs, an IllegalArgumentException is thrown.
+     * Gets {@link ApplianceFactory} from its applianceName.
+     * If an error occurs, an {@link IllegalArgumentException} is thrown.
      *
-     * @param applianceName name of appliance
-     * @return ApplianceFactory specific ApplianceFactory
+     * @param applianceName name of {@link Appliance}
+     * @return {@link ApplianceFactory} specific ApplianceFactory
      */
-    public static ApplianceFactory getApplianceFactory(String applianceName) {
-        return switch (applianceName) {
-            case ApplianceNameConst.LAPTOP -> new LaptopFactory();
-            case ApplianceNameConst.OVEN -> new OvenFactory();
-            case ApplianceNameConst.REFRIGERATOR -> new RefrigeratorFactory();
-            case ApplianceNameConst.SPEAKERS -> new SpeakersFactory();
-            case ApplianceNameConst.TABLET_PC -> new TabletPCFactory();
-            case ApplianceNameConst.VACUUM_CLEANER -> new VacuumCleanerFactory();
-            default -> throw new IllegalArgumentException(ExceptionMessageConst.ILLEGAL_ARGUMENT_FACTORY_EXCEPTION_MSG);
-        };
+    public static ApplianceFactory getApplianceFactory(String applianceName) throws EnumConstantNotPresentException {
+        try {
+            return switch (ApplianceTagName.valueOf(applianceName)) {
+                case LAPTOP -> new LaptopFactory();
+                case OVEN -> new OvenFactory();
+                case REFRIGERATOR -> new RefrigeratorFactory();
+                case SPEAKERS -> new SpeakersFactory();
+                case TABLET_PC -> new TabletPCFactory();
+                case VACUUM_CLEANER -> new VacuumCleanerFactory();
+            };
+        } catch (IllegalArgumentException e) {
+            throw new EnumConstantNotPresentException(ApplianceTagName.class, applianceName);
+        }
     }
 
 }

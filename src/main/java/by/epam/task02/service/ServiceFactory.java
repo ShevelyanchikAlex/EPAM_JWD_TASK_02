@@ -10,34 +10,34 @@ import by.epam.task02.service.impl.ApplianceServiceImpl;
  */
 public final class ServiceFactory {
     /**
-     * Field instance - instance of ServiceFactory
+     * Field instance - instance of {@link ServiceFactory}
      */
     private static final ServiceFactory instance = new ServiceFactory();
 
     /**
-     * Field applianceService - ApplianceServiceImpl
+     * Field applianceService - {@link ApplianceServiceImpl}
      */
     private final ApplianceService applianceService = new ApplianceServiceImpl();
 
     /**
-     * Private constructor to close the ability of instantiating ServiceFactory.
+     * Private constructor to close the ability of instantiating {@link ServiceFactory}.
      */
     private ServiceFactory() {
     }
 
     /**
-     * Gets ApplianceService
+     * Gets {@link ApplianceService}
      *
-     * @return applianceService
+     * @return {@link ApplianceService}
      */
     public ApplianceService getApplianceService() {
         return applianceService;
     }
 
     /**
-     * Gets instance of ServiceFactory
+     * Gets instance of {@link ServiceFactory}
      *
-     * @return instance
+     * @return {@link ServiceFactory} instance
      */
     public static ServiceFactory getInstance() {
         return instance;

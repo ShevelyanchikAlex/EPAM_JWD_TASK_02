@@ -3,12 +3,13 @@ package by.epam.task02.service.validation.impl;
 import by.epam.task02.service.validation.CriteriaValidator;
 
 /**
- * IntValidator class.
+ * NumberOfSpeakersValidator class.
  *
  * @author Alex Shevelyanchik
  * @version 1.0
  */
-public class IntValidator implements CriteriaValidator {
+public class NumberOfSpeakersValidator implements CriteriaValidator {
+    private final static double MIN_NUMBER_OF_SPEAKERS = 0.0;
 
     /**
      * {@inheritDoc}
@@ -16,10 +17,9 @@ public class IntValidator implements CriteriaValidator {
     @Override
     public boolean isCriteriaValid(Object value) {
         if (value instanceof Integer) {
-            return (Integer) value > 0;
+            return (Integer) value > MIN_NUMBER_OF_SPEAKERS;
         } else {
             return false;
         }
     }
-
 }

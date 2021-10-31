@@ -19,7 +19,7 @@ public class WandTypeValidator implements CriteriaValidator {
         try {
             WandType.valueOf((String) value);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

@@ -19,7 +19,7 @@ public class BagTypeValidator implements CriteriaValidator {
         try {
             BagType.valueOf((String) value);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

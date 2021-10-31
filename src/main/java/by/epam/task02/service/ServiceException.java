@@ -1,4 +1,4 @@
-package by.epam.task02.exception;
+package by.epam.task02.service;
 
 /**
  * ServiceException class.
@@ -10,14 +10,14 @@ package by.epam.task02.exception;
 public class ServiceException extends Exception {
 
     /**
-     * Parameterless ServiceException constructor
+     * Parameterless {@link ServiceException} constructor
      */
     public ServiceException() {
         super();
     }
 
     /**
-     * ServiceException constructor with parameter
+     * {@link ServiceException} constructor with parameter
      *
      * @param message message
      */
@@ -26,19 +26,19 @@ public class ServiceException extends Exception {
     }
 
     /**
-     * ServiceException constructor with parameters
+     * {@link ServiceException} constructor with parameters
      *
      * @param message message
-     * @param e       exception
+     * @param e       {@link Exception}
      */
     public ServiceException(String message, Exception e) {
         super(message, e);
     }
 
     /**
-     * ServiceException constructor with parameter
+     * {@link ServiceException} constructor with parameter
      *
-     * @param e exception
+     * @param e {@link Exception}
      */
     public ServiceException(Exception e) {
         super(e);

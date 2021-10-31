@@ -1,7 +1,7 @@
 package by.epam.task02.dao.appliance_factory.impl;
 
-import by.epam.task02.constant.ExceptionMessageConst;
 import by.epam.task02.dao.appliance_factory.ApplianceFactory;
+import by.epam.task02.dao.constant.DaoExceptionMessage;
 import by.epam.task02.entity.Appliance;
 import by.epam.task02.entity.Speakers;
 import by.epam.task02.entity.criteria.SearchCriteria;
@@ -28,15 +28,14 @@ public class SpeakersFactory extends ApplianceFactory {
         for (int i = 0; i < nodeList.getLength(); i++) {
             if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
                 String value = nodeList.item(i).getTextContent();
+                String speakersSearchCriteria = nodeList.item(i).getNodeName().toUpperCase().replace('-', '_');
 
-                SearchCriteria.Speakers speakersSearchCriteria = SearchCriteria.Speakers.valueOf(nodeList.item(i).getNodeName().toUpperCase());
-
-                switch (speakersSearchCriteria) {
+                switch (SearchCriteria.Speakers.valueOf(speakersSearchCriteria)) {
                     case PRICE -> price = Double.parseDouble(value);
                     case POWER_CONSUMPTION -> powerConsumption = Double.parseDouble(value);
                     case NUMBER_OF_SPEAKERS -> numberOfSpeakers = Integer.parseInt(value);
                     case CORD_LENGTH -> cordLength = Double.parseDouble(value);
-                    default -> throw new IllegalArgumentException(ExceptionMessageConst.ILLEGAL_ARGUMENT_CRITERIA_EXCEPTION_MSG);
+                    default -> throw new IllegalArgumentException(DaoExceptionMessage.ILLEGAL_ARGUMENT_APPLIANCE_FACTORY_EXCEPTION_MSG.getMessage());
                 }
             }
         }

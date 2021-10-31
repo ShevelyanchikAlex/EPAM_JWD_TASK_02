@@ -2,7 +2,6 @@ package by.epam.task02.dao;
 
 import by.epam.task02.entity.Appliance;
 import by.epam.task02.entity.criteria.Criteria;
-import by.epam.task02.exception.DaoException;
 
 import java.util.List;
 
@@ -14,21 +13,21 @@ import java.util.List;
  */
 public interface ApplianceDAO {
     /**
-     * Finds all appliances that match the given criteria.
+     * Finds all {@link Appliance} that match the given criteria.
      *
-     * @param criteria SearchCriteria with which sorting occurs
-     * @return List<Appliance>  list of appliances found
-     * @throws DaoException when throwing an exception on a dao layer
+     * @param criteria {@link by.epam.task02.entity.criteria.SearchCriteria} with which sorting occurs
+     * @return {@link List<Appliance>}  list of appliances found
+     * @throws DaoException when throwing an exception on a DAO layer
      */
     List<Appliance> find(Criteria criteria) throws DaoException;
 
     /**
-     * Adds Appliance to xml-file.
+     * Adds {@link Appliance} to xml-file.
      *
-     * @param applianceName name of appliance
-     * @param appliance     appliance
+     * @param applianceName name of {@link Appliance}
+     * @param appliance     {@link Appliance}
      * @return true when added without exception, otherwise false
-     * @throws DaoException when throwing an exception on a dao layer
+     * @throws DaoException when throwing an exception on a DAO layer
      */
     boolean add(String applianceName, Appliance appliance) throws DaoException;
 }

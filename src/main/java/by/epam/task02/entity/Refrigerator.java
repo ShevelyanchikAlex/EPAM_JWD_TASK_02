@@ -13,38 +13,38 @@ import java.util.Objects;
  */
 public class Refrigerator extends Appliance implements Serializable {
     /**
-     * Field powerConsumption of refrigerator
+     * Field powerConsumption of {@link Refrigerator}
      */
     private double powerConsumption;
     /**
-     * Field weight of refrigerator
+     * Field weight of {@link Refrigerator}
      */
     private double weight;
     /**
-     * Field freezerCapacity of refrigerator
+     * Field freezerCapacity of {@link Refrigerator}
      */
     private double freezerCapacity;
     /**
-     * Field overallCapacity of refrigerator
+     * Field overallCapacity of {@link Refrigerator}
      */
     private double overallCapacity;
     /**
-     * Field height of refrigerator
+     * Field height of {@link Refrigerator}
      */
     private double height;
     /**
-     * Field width of refrigerator
+     * Field width of {@link Refrigerator}
      */
     private double width;
 
     /**
-     * Parameterless Refrigerator constructor - creating a new Refrigerator object
+     * Parameterless {@link Refrigerator} constructor
      */
     public Refrigerator() {
     }
 
     /**
-     * Refrigerator constructor - creating a new Refrigerator object with parameters
+     * {@link Refrigerator} constructor with parameters
      *
      * @param price            price
      * @param powerConsumption power consumption

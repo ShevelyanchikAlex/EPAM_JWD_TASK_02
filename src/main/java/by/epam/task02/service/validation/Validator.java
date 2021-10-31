@@ -11,9 +11,9 @@ import by.epam.task02.entity.criteria.Criteria;
 public class Validator {
 
     /**
-     * Validates criteria by its SearchCriteria.
+     * Validates criteria by its {@link by.epam.task02.entity.criteria.SearchCriteria}.
      *
-     * @param criteria criteria to validate
+     * @param criteria {@link Criteria} to validate
      * @return true if criteria is valid. Otherwise, false.
      */
     public static boolean isCriteriaValid(Criteria criteria) {

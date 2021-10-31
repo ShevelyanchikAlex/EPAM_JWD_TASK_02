@@ -12,40 +12,40 @@ import java.util.Objects;
  */
 public class Laptop extends Appliance implements Serializable {
     /**
-     * Field batteryCapacity of laptop
+     * Field batteryCapacity of {@link Laptop}
      */
     private double batteryCapacity;
     /**
-     * Field os of laptop
+     * Field {@link OS} of {@link Laptop}
      */
     private OS os;
     /**
-     * Field memoryRom of laptop
+     * Field memoryRom of {@link Laptop}
      */
     private double memoryRom;
     /**
-     * Field cpu of laptop
+     * Field {@link CPU} of {@link Laptop}
      */
     private CPU cpu;
     /**
-     * Field displayInches of laptop
+     * Field displayInches of {@link Laptop}
      */
     private double displayInches;
 
     /**
-     * Parameterless Laptop constructor - creating a new Laptop object
+     * Parameterless {@link Laptop} constructor
      */
     public Laptop() {
     }
 
     /**
-     * Laptop constructor - creating a new Laptop object with parameters
+     * {@link Laptop} constructor with parameters
      *
      * @param price            price
      * @param battery_capacity battery capacity
-     * @param os               operating system
+     * @param os               {@link OS}
      * @param memory_rom       memory rom
-     * @param cpu              cpu
+     * @param cpu              {@link CPU}
      * @param displayInches    display inches
      */
     public Laptop(double price, double battery_capacity, OS os, double memory_rom, CPU cpu, double displayInches) {
@@ -67,9 +67,9 @@ public class Laptop extends Appliance implements Serializable {
     }
 
     /**
-     * Gets OS value
+     * Gets {@link OS} value
      *
-     * @return os
+     * @return {@link OS}
      */
     public OS getOs() {
         return os;
@@ -85,9 +85,9 @@ public class Laptop extends Appliance implements Serializable {
     }
 
     /**
-     * Gets cpu value
+     * Gets {@link CPU} value
      *
-     * @return cpu
+     * @return {@link CPU}
      */
     public CPU getCpu() {
         return cpu;

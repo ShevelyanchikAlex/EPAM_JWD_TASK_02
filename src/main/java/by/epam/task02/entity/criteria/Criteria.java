@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class Criteria {
     /**
-     * Field criteriaMap contains SearchCriteria for further filtering
+     * Field criteriaMap contains {@link SearchCriteria} for further filtering
      */
     private final Map<String, Object> criteriaMap = new HashMap<>();
     /**
@@ -21,7 +21,7 @@ public class Criteria {
     private final String groupSearchName;
 
     /**
-     * Criteria constructor - creating a new Criteria object with parameters
+     * {@link Criteria} constructor with parameters
      *
      * @param groupSearchName group search name
      */
@@ -48,7 +48,7 @@ public class Criteria {
     }
 
     /**
-     * Adds new SearchCriteria with value to criteriaMap
+     * Adds new {@link SearchCriteria} with value to criteriaMap
      */
     public void add(String searchCriteria, Object value) {
         criteriaMap.put(searchCriteria, value);

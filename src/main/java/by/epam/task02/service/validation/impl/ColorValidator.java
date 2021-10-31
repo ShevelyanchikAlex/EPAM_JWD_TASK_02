@@ -19,7 +19,7 @@ public class ColorValidator implements CriteriaValidator {
         try {
             Color.valueOf((String) value);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

@@ -12,27 +12,27 @@ import java.util.Objects;
  */
 public class Speakers extends Appliance implements Serializable {
     /**
-     * Field powerConsumption of speakers
+     * Field powerConsumption of {@link Speakers}
      */
     private double powerConsumption;
     /**
-     * Field numberOfSpeakers of speakers
+     * Field numberOfSpeakers of {@link Speakers}
      */
     private int numberOfSpeakers;
     /**
-     * Field cordLength of speakers
+     * Field cordLength of {@link Speakers}
      */
     private double cordLength;
 
 
     /**
-     * Parameterless Speakers constructor - creating a new Speakers object
+     * Parameterless {@link Speakers} constructor
      */
     public Speakers() {
     }
 
     /**
-     * Speakers constructor - creating a new Speakers object with parameters
+     * {@link Speakers} constructor with parameters
      *
      * @param price            price
      * @param powerConsumption power consumption

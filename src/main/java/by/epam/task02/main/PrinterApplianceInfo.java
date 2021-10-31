@@ -1,6 +1,5 @@
 package by.epam.task02.main;
 
-import by.epam.task02.constant.ExceptionMessageConst;
 import by.epam.task02.entity.Appliance;
 
 import java.util.List;
@@ -13,19 +12,21 @@ import java.util.List;
  * @version 1.0
  */
 public class PrinterApplianceInfo {
+    private static final String APPLIANCES_LIST_NULL_EXCEPTION_MSG = "AppliancesList is null.\nAppliancesList cannot be null!";
+    private static final String APPLIANCES_LIST_EMPTY_MSG = "AppliancesList is empty (appliances not found).";
 
     /**
      * Prints the information about all found appliances.
      * Prints APPLIANCES_LIST_NULL_EXCEPTION_MSG if list is null.
-     * Prints APPLIANCES_LIST_EMPTY_EXCEPTION_MSG if list is empty.
+     * Prints APPLIANCES_LIST_EMPTY_MSG if list is empty.
      *
-     * @param appliances - list of appliances
+     * @param appliances {@link List<Appliance>}
      */
     public static void print(List<Appliance> appliances) {
         if (appliances == null) {
-            System.out.println(ExceptionMessageConst.APPLIANCES_LIST_NULL_EXCEPTION_MSG);
+            throw new NullPointerException(APPLIANCES_LIST_NULL_EXCEPTION_MSG);
         } else if (appliances.isEmpty()) {
-            System.out.println(ExceptionMessageConst.APPLIANCES_LIST_EMPTY_EXCEPTION_MSG);
+            System.out.println(APPLIANCES_LIST_EMPTY_MSG);
         } else {
             for (Appliance appliance : appliances) {
                 System.out.println(appliance);

@@ -12,38 +12,38 @@ import java.util.Objects;
  */
 public class Oven extends Appliance implements Serializable {
     /**
-     * Field powerConsumption of oven
+     * Field powerConsumption of {@link Oven}
      */
     private double powerConsumption;
     /**
-     * Field weight of oven
+     * Field weight of {@link Oven}
      */
     private double weight;
     /**
-     * Field capacity of oven
+     * Field capacity of {@link Oven}
      */
     private double capacity;
     /**
-     * Field depth of oven
+     * Field depth of {@link Oven}
      */
     private double depth;
     /**
-     * Field height of oven
+     * Field height of {@link Oven}
      */
     private double height;
     /**
-     * Field width of oven
+     * Field width of {@link Oven}
      */
     private double width;
 
     /**
-     * Parameterless Oven constructor - creating a new Oven object
+     * Parameterless {@link Oven} constructor
      */
     public Oven() {
     }
 
     /**
-     * Oven constructor - creating a new Oven object with parameters
+     * {@link Oven} constructor with parameters
      *
      * @param price            price
      * @param powerConsumption power consumption

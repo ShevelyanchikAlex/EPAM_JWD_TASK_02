@@ -12,41 +12,41 @@ import java.util.Objects;
  */
 public class TabletPC extends Appliance implements Serializable {
     /**
-     * Field batteryCapacity of tabletPC
+     * Field batteryCapacity of {@link TabletPC}
      */
     private double batteryCapacity;
     /**
-     * Field displayInches of tabletPC
+     * Field displayInches of {@link TabletPC}
      */
     private double displayInches;
     /**
-     * Field memoryRom of tabletPC
+     * Field memoryRom of {@link TabletPC}
      */
     private double memoryRom;
     /**
-     * Field flashMemoryCapacity of tabletPC
+     * Field flashMemoryCapacity of {@link TabletPC}
      */
     private double flashMemoryCapacity;
     /**
-     * Field color of tabletPC
+     * Field {@link Color} of {@link TabletPC}
      */
     private Color color;
 
     /**
-     * Parameterless TabletPC constructor - creating a new TabletPC object
+     * Parameterless {@link TabletPC} constructor
      */
     public TabletPC() {
     }
 
     /**
-     * TabletPC constructor - creating a new TabletPC object with parameters
+     * {@link TabletPC} constructor with parameters
      *
      * @param price               price
      * @param batteryCapacity     battery capacity
      * @param displayInches       display inches
      * @param memoryRom           memory rom
      * @param flashMemoryCapacity flash memory capacity
-     * @param color               color
+     * @param color               {@link Color}
      */
     public TabletPC(double price, double batteryCapacity, double displayInches, double memoryRom, double flashMemoryCapacity, Color color) {
         super(price);
@@ -96,7 +96,7 @@ public class TabletPC extends Appliance implements Serializable {
     /**
      * Gets color value
      *
-     * @return color
+     * @return {@link Color}
      */
     public Color getColor() {
         return color;

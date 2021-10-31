@@ -19,7 +19,7 @@ public class FilterTypeValidator implements CriteriaValidator {
         try {
             FilterType.valueOf((String) value);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

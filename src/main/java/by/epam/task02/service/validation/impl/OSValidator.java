@@ -19,7 +19,7 @@ public class OSValidator implements CriteriaValidator {
         try {
             OS.valueOf((String) value);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

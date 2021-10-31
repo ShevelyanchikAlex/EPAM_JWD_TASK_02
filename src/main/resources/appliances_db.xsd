@@ -9,8 +9,8 @@
                 <xs:element name="oven" type="tns:ovenType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="laptop" type="tns:laptopType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="refrigerator" type="tns:refrigeratorType" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="vacuumCleaner" type="tns:vacuumCleanerType" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="tabletPC" type="tns:tabletPCType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="vacuum-cleaner" type="tns:vacuumCleanerType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="tablet-PC" type="tns:tabletPCType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="speakers" type="tns:speakersType" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
@@ -19,7 +19,7 @@
     <xs:complexType name="ovenType">
         <xs:sequence>
             <xs:element name="price" type="xs:double"/>
-            <xs:element name="power_consumption" type="xs:double"/>
+            <xs:element name="power-consumption" type="xs:double"/>
             <xs:element name="weight" type="xs:double"/>
             <xs:element name="capacity" type="xs:double"/>
             <xs:element name="depth" type="xs:double"/>
@@ -31,21 +31,21 @@
     <xs:complexType name="laptopType">
         <xs:sequence>
             <xs:element name="price" type="xs:double"/>
-            <xs:element name="battery_capacity" type="xs:double"/>
+            <xs:element name="battery-capacity" type="xs:double"/>
             <xs:element name="os" type="tns:os"/>
-            <xs:element name="memory_rom" type="xs:double"/>
+            <xs:element name="memory-rom" type="xs:double"/>
             <xs:element name="cpu" type="tns:cpu"/>
-            <xs:element name="display_inches" type="xs:double"/>
+            <xs:element name="display-inches" type="xs:double"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="refrigeratorType">
         <xs:sequence>
             <xs:element name="price" type="xs:double"/>
-            <xs:element name="power_consumption" type="xs:double"/>
+            <xs:element name="power-consumption" type="xs:double"/>
             <xs:element name="weight" type="xs:double"/>
-            <xs:element name="freezer_capacity" type="xs:double"/>
-            <xs:element name="overall_capacity" type="xs:double"/>
+            <xs:element name="freezer-capacity" type="xs:double"/>
+            <xs:element name="overall-capacity" type="xs:double"/>
             <xs:element name="height" type="xs:double"/>
             <xs:element name="width" type="xs:double"/>
         </xs:sequence>
@@ -54,22 +54,22 @@
     <xs:complexType name="vacuumCleanerType">
         <xs:sequence>
             <xs:element name="price" type="xs:double"/>
-            <xs:element name="power_consumption" type="xs:double"/>
-            <xs:element name="filter_type" type="tns:filter_type"/>
-            <xs:element name="bag_type" type="tns:bag_type"/>
-            <xs:element name="wand_type" type="tns:wand_type"/>
-            <xs:element name="motor_speed_regulation" type="xs:double"/>
-            <xs:element name="cleaning_width" type="xs:double"/>
+            <xs:element name="power-consumption" type="xs:double"/>
+            <xs:element name="filter-type" type="tns:filter-type"/>
+            <xs:element name="bag-type" type="tns:bag-type"/>
+            <xs:element name="wand-type" type="tns:wand-type"/>
+            <xs:element name="motor-speed-regulation" type="xs:double"/>
+            <xs:element name="cleaning-width" type="xs:double"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="tabletPCType">
         <xs:sequence>
             <xs:element name="price" type="xs:double"/>
-            <xs:element name="battery_capacity" type="xs:double"/>
-            <xs:element name="display_inches" type="xs:double"/>
-            <xs:element name="memory_rom" type="xs:double"/>
-            <xs:element name="flash_memory_capacity" type="xs:double"/>
+            <xs:element name="battery-capacity" type="xs:double"/>
+            <xs:element name="display-inches" type="xs:double"/>
+            <xs:element name="memory-rom" type="xs:double"/>
+            <xs:element name="flash-memory-capacity" type="xs:double"/>
             <xs:element name="color" type="tns:color"/>
         </xs:sequence>
     </xs:complexType>
@@ -77,9 +77,9 @@
     <xs:complexType name="speakersType">
         <xs:sequence>
             <xs:element name="price" type="xs:double"/>
-            <xs:element name="power_consumption" type="xs:double"/>
-            <xs:element name="number_of_speakers" type="xs:int"/>
-            <xs:element name="cord_length" type="xs:double"/>
+            <xs:element name="power-consumption" type="xs:double"/>
+            <xs:element name="number-of-speakers" type="xs:int"/>
+            <xs:element name="cord-length" type="xs:double"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -105,7 +105,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="filter_type">
+    <xs:simpleType name="filter-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="A"/>
             <xs:enumeration value="B"/>
@@ -113,7 +113,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="bag_type">
+    <xs:simpleType name="bag-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="A1"/>
             <xs:enumeration value="A2"/>
@@ -122,7 +122,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="wand_type">
+    <xs:simpleType name="wand-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="ALL_IN_ONE"/>
             <xs:enumeration value="LONG"/>

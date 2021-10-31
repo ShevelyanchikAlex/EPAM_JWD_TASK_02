@@ -10,33 +10,33 @@ import by.epam.task02.dao.impl.ApplianceDAOImpl;
  */
 public final class DAOFactory {
     /**
-     * Field instance - instance of DAOFactory
+     * Field instance - instance of {@link DAOFactory}
      */
     private static final DAOFactory instance = new DAOFactory();
     /**
-     * Field applianceDAO - ApplianceDAOImpl
+     * Field applianceDAO - {@link ApplianceDAOImpl}
      */
     private final ApplianceDAO applianceDAO = new ApplianceDAOImpl();
 
     /**
-     * Private constructor to close the ability of instantiating DAOFactory.
+     * Private constructor to close the ability of instantiating {@link DAOFactory}.
      */
     private DAOFactory() {
     }
 
     /**
-     * Gets applianceDAO
+     * Gets {@link ApplianceDAO}
      *
-     * @return applianceDAO
+     * @return {@link ApplianceDAO}
      */
     public ApplianceDAO getApplianceDAO() {
         return applianceDAO;
     }
 
     /**
-     * Gets instance of DAOFactory
+     * Gets instance of {@link DAOFactory}
      *
-     * @return instance
+     * @return {@link DAOFactory}
      */
     public static DAOFactory getInstance() {
         return instance;

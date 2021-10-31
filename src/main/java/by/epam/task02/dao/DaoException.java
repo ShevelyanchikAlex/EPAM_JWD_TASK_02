@@ -1,8 +1,8 @@
-package by.epam.task02.exception;
+package by.epam.task02.dao;
 
 /**
  * DaoException class.
- * This class needed to throw exceptions on the dao layer.
+ * This class needed to throw exceptions on the DAO layer.
  *
  * @author Alex Shevelyanchik
  * @version 1.0
@@ -10,14 +10,14 @@ package by.epam.task02.exception;
 public class DaoException extends Exception {
 
     /**
-     * Parameterless DaoException constructor
+     * Parameterless {@link DaoException} constructor
      */
     public DaoException() {
         super();
     }
 
     /**
-     * DaoException constructor with parameter
+     * {@link DaoException} constructor with parameter
      *
      * @param message message
      */
@@ -26,19 +26,19 @@ public class DaoException extends Exception {
     }
 
     /**
-     * DaoException constructor with parameters
+     * {@link DaoException} constructor with parameters
      *
      * @param message message
-     * @param e       exception
+     * @param e       {@link Exception}
      */
     public DaoException(String message, Exception e) {
         super(message, e);
     }
 
     /**
-     * DaoException constructor with parameter
+     * {@link DaoException} constructor with parameter
      *
-     * @param e exception
+     * @param e {@link Exception}
      */
     public DaoException(Exception e) {
         super(e);
